@@ -72,26 +72,12 @@ function saveClose() {
 }
 
 function resizeThisImage(thisSize) {
-	
 	if (doc_height/doc_width > 1) {
 		// Portrait
-		
-		//var new_width = thisSize;
-		//var new_height = doc_height/doc_width * doc_height;
-		
 		app.activeDocument.resizeImage(UnitValue(thisSize, "px"), null, null, ResampleMethod.AUTOMATIC);
-		
 	} else {
-		// Landscape
-		
-		//var new_height = thisSize;
-		//var new_width = doc_width/doc_height * doc_width;
-		
-		app.activeDocument.resizeImage(null, UnitValue(thisSize, "px"), null, ResampleMethod.AUTOMATIC);
-	}
-	
-
-		
+		pp.activeDocument.resizeImage(null, UnitValue(thisSize, "px"), null, ResampleMethod.AUTOMATIC);
+	}	
 }
 
 function format(){
@@ -188,13 +174,15 @@ if (do_bw == true) {
 		
 	} else if (image_format == "645") {
 		resizeThisImage(target_size_645);
-		for (var i in actions_645_color) {
-			if (do_poserframes == true) {
+		if (do_poserframes == true) {
+			for (var i in actions_645_color_poserframes) {
 				app.doAction(actions_645_color_poserframes[i][0], actions_645_color_poserframes[i][1]);
-			} else {
-				app.doAction(actions_645_color[i][0], actions_645_color[i][1]);
 			}
-		}
+		} else {
+			for (var i in actions_645_color) {
+				app.doAction(actions_645_color[i][0], actions_645_color[i][1]);	
+			}
+		}	
 	} else if (image_format == "67") {
 		
 	} else if (image_format == "45") {
