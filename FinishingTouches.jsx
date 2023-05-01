@@ -16,11 +16,32 @@ var target_size_67 = 6000;
 var target_size_45 = 6000;
 var target_size_square = 6000;
 
+
+// 35mm
+
 var actions_35mm_color_poserframes = [
 						["Heavy alt 3", "Poser Frames.atn"],
 						["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"],
 						["Color", "Remove outside grain.atn"]
 						];
+						
+var actions_35mm_bw_poserframes = [
+						["Heavy alt 3", "Poser Frames.atn"],
+						["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"],
+						["BW", "Remove outside grain.atn"]
+						];
+						
+var actions_35mm_color = [
+						["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"]
+						];
+						
+var actions_35mm_bw = [
+						["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]
+						];
+
+
+
+// 645
 
 var actions_645_color_poserframes = [
 						["Heavy alt 3", "Poser Frames.atn"],
@@ -31,7 +52,7 @@ var actions_645_color_poserframes = [
 var actions_645_bw_poserframes = [
 						["Heavy alt 3", "Poser Frames.atn"],
 						["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"], 
-						["Color", "Remove outside grain.atn"]
+						["BW", "Remove outside grain.atn"]
 						];
 						
 var actions_645_color = [
@@ -86,7 +107,7 @@ function resizeThisImage(thisSize) {
 		// Portrait
 		app.activeDocument.resizeImage(UnitValue(thisSize, "px"), null, null, ResampleMethod.AUTOMATIC);
 	} else {
-		pp.activeDocument.resizeImage(null, UnitValue(thisSize, "px"), null, ResampleMethod.AUTOMATIC);
+		app.activeDocument.resizeImage(null, UnitValue(thisSize, "px"), null, ResampleMethod.AUTOMATIC);
 	}	
 }
 
@@ -164,7 +185,16 @@ for(var a in doc_keywords){
 if (do_bw == true) {
 	// BW workflows
 	if (image_format == "35mm") {
-			
+		resizeThisImage(target_size_35mm);
+		if (do_poserframes == true) {
+			for (var i in actions_35mm_bw_poserframes) {
+				app.doAction(actions_35mm_bw_poserframes[i][0], actions_35mm_bw_poserframes[i][1]);
+			}
+		} else {
+			for (var i in actions_35mm_bw) {
+				app.doAction(actions_35mm_bw[i][0], actions_35mm_bw[i][1]);	
+			}
+		}	
 	} else if (image_format == "645") {
 		resizeThisImage(target_size_645);
 		if (do_poserframes == true) {
@@ -187,7 +217,16 @@ if (do_bw == true) {
 } else {
 	// Color workflows
 	if (image_format == "35mm") {
-		
+		resizeThisImage(target_size_35mm);
+		if (do_poserframes == true) {
+			for (var i in actions_35mm_color_poserframes) {
+				app.doAction(actions_35mm_color_poserframes[i][0], actions_35mm_color_poserframes[i][1]);
+			}
+		} else {
+			for (var i in actions_35mm_color) {
+				app.doAction(actions_35mm_color[i][0], actions_35mm_color[i][1]);	
+			}
+		}
 	} else if (image_format == "645") {
 		resizeThisImage(target_size_645);
 		if (do_poserframes == true) {
