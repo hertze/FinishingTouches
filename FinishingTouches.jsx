@@ -71,6 +71,29 @@ function saveClose() {
 	app.activeDocument.close();
 }
 
+function resizeThisImage(thisSize) {
+	
+	if (doc_height/doc_width > 1) {
+		// Portrait
+		
+		//var new_width = thisSize;
+		//var new_height = doc_height/doc_width * doc_height;
+		
+		app.activeDocument.resizeImage(UnitValue(thisSize, "px"), null, null, ResampleMethod.BICUBIC);
+		
+	} else {
+		// Landscape
+		
+		//var new_height = thisSize;
+		//var new_width = doc_width/doc_height * doc_width;
+		
+		app.activeDocument.resizeImage(null, UnitValue(thisSize, "px"), null, ResampleMethod.BICUBIC);
+	}
+	
+
+		
+}
+
 function format(){
 	// Determine format
 	if (doc_height > doc_width) {
@@ -135,12 +158,12 @@ var doc_keywords = app.activeDocument.info.keywords;
 for(var a in doc_keywords){
 	//amend the match for your keywod
 	if (doc_keywords[a].toString().match(/poserframes/)) {
-		const do_poserframes = true;
+		var do_poserframes = true;
 	}
 	if (doc_keywords[a].toString().match(/bw/)) {
-		const do_bw = true;
+		var do_bw = true;
 	} else if (doc_keywords[a].toString().match(/color/)){
-		const do_bw = false;
+		var do_bw = false;
 	}
 }
 
@@ -180,6 +203,5 @@ if (do_bw == true) {
 	}
 	
 }
-
 
 //saveClose();
