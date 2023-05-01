@@ -30,7 +30,7 @@ var actions_645_color_poserframes = [
 						
 var actions_645_bw_poserframes = [
 						["Heavy alt 3", "Poser Frames.atn"],
-						["645 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"], 
+						["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"], 
 						["Color", "Remove outside grain.atn"]
 						];
 						
@@ -39,7 +39,7 @@ var actions_645_color = [
 						];
 						
 var actions_645_bw = [
-						["645 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"] 
+						["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"] 
 						];
 
 
