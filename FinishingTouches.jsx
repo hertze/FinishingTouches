@@ -79,7 +79,7 @@ function resizeThisImage(thisSize) {
 		//var new_width = thisSize;
 		//var new_height = doc_height/doc_width * doc_height;
 		
-		app.activeDocument.resizeImage(UnitValue(thisSize, "px"), null, null, ResampleMethod.BICUBIC);
+		app.activeDocument.resizeImage(UnitValue(thisSize, "px"), null, null, ResampleMethod.AUTOMATIC);
 		
 	} else {
 		// Landscape
@@ -87,7 +87,7 @@ function resizeThisImage(thisSize) {
 		//var new_height = thisSize;
 		//var new_width = doc_width/doc_height * doc_width;
 		
-		app.activeDocument.resizeImage(null, UnitValue(thisSize, "px"), null, ResampleMethod.BICUBIC);
+		app.activeDocument.resizeImage(null, UnitValue(thisSize, "px"), null, ResampleMethod.AUTOMATIC);
 	}
 	
 
@@ -187,6 +187,7 @@ if (do_bw == true) {
 	if (image_format == "35mm") {
 		
 	} else if (image_format == "645") {
+		resizeThisImage(target_size_645);
 		for (var i in actions_645_color) {
 			if (do_poserframes == true) {
 				app.doAction(actions_645_color_poserframes[i][0], actions_645_color_poserframes[i][1]);
