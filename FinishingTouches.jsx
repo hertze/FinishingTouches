@@ -28,8 +28,18 @@ var actions_645_color_poserframes = [
 						["Color", "Remove outside grain.atn"]
 						];
 						
+var actions_645_bw_poserframes = [
+						["Heavy alt 3", "Poser Frames.atn"],
+						["645 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"], 
+						["Color", "Remove outside grain.atn"]
+						];
+						
 var actions_645_color = [
 						["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"] 
+						];
+						
+var actions_645_bw = [
+						["645 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"] 
 						];
 
 
@@ -142,24 +152,30 @@ var doc_keywords = app.activeDocument.info.keywords;
 
 // Set constants from keywords
 for(var a in doc_keywords){
-	//amend the match for your keywod
+
 	if (doc_keywords[a].toString().match(/poserframes/)) {
 		var do_poserframes = true;
 	}
 	if (doc_keywords[a].toString().match(/bw/)) {
 		var do_bw = true;
-	} else if (doc_keywords[a].toString().match(/color/)){
-		var do_bw = false;
 	}
 }
-
 
 if (do_bw == true) {
 	// BW workflows
 	if (image_format == "35mm") {
 			
 	} else if (image_format == "645") {
-		
+		resizeThisImage(target_size_645);
+		if (do_poserframes == true) {
+			for (var i in actions_645_bw_poserframes) {
+				app.doAction(actions_645_bw_poserframes[i][0], actions_645_bw_poserframes[i][1]);
+			}
+		} else {
+			for (var i in actions_645_bw) {
+				app.doAction(actions_645_bw[i][0], actions_645_bw[i][1]);	
+			}
+		}
 	} else if (image_format == "67") {
 		
 	} else if (image_format == "45") {
@@ -182,7 +198,7 @@ if (do_bw == true) {
 			for (var i in actions_645_color) {
 				app.doAction(actions_645_color[i][0], actions_645_color[i][1]);	
 			}
-		}	
+		}
 	} else if (image_format == "67") {
 		
 	} else if (image_format == "45") {
