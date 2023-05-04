@@ -16,19 +16,20 @@ var target_size_67 = 6000;
 var target_size_45 = 6000;
 var target_size_square = 6000;
 
+var tiff_to_jpg = true;
 
 // 35mm
 
 var actions_35mm_color_poserframes = [
 						["Heavy alt 3", "Poser Frames.atn"],
 						["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"],
-						["Color", "Remove outside grain.atn"]
+						["Light", "Remove outside grain.atn"]
 						];
 						
 var actions_35mm_bw_poserframes = [
 						["Heavy alt 3", "Poser Frames.atn"],
 						["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"],
-						["BW", "Remove outside grain.atn"]
+						["Strong", "Remove outside grain.atn"]
 						];
 						
 var actions_35mm_color = [
@@ -46,13 +47,13 @@ var actions_35mm_bw = [
 var actions_645_color_poserframes = [
 						["Heavy alt 3", "Poser Frames.atn"],
 						["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"], 
-						["Color", "Remove outside grain.atn"]
+						["Light", "Remove outside grain.atn"]
 						];
 						
 var actions_645_bw_poserframes = [
 						["Heavy alt 3", "Poser Frames.atn"],
 						["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"], 
-						["BW", "Remove outside grain.atn"]
+						["Medium", "Remove outside grain.atn"]
 						];
 						
 var actions_645_color = [
@@ -82,13 +83,31 @@ function saveClose() {
 	var file_ending = app.activeDocument.name.split('.').pop().toLowerCase();
 	var fPath = app.activeDocument.path;
 	if (file_ending == "tif" || file_ending == "tiff") {
-		// Save out the image as tiff
-		var tiffFile = new File(fPath);
-		tiffSaveOptions = new TiffSaveOptions();
-		tiffSaveOptions.imageCompression = TIFFEncoding.NONE;
-		tiffSaveOptions.layers = false;
-		tiffSaveOptions.embedColorProfile = true;
-		app.activeDocument.saveAs(tiffFile, tiffSaveOptions, false, Extension.LOWERCASE);
+		if (tiff_to_jpg = true) {
+			// Save as jpg in folder
+			var fName = app.activeDocument.name.split('.');
+			var jpgPath = fPath + "\/jpgs\/" + fName[0] + ".jpg";
+			
+			var jpgFolder = Folder(fPath + "/jpgs");
+			//Check if it exist, if not create it.
+			if(!jpgFolder.exists) jpgFolder.create();
+
+			var jpgFile = new File(jpgPath);
+			jpgSaveOptions = new JPEGSaveOptions();
+			jpgSaveOptions.formatOptions = FormatOptions.OPTIMIZEDBASELINE;
+			jpgSaveOptions.embedColorProfile = true;
+			jpgSaveOptions.matte = MatteType.NONE;
+			jpgSaveOptions.quality = 12;
+			app.activeDocument.saveAs(jpgFile, jpgSaveOptions, false, Extension.LOWERCASE);
+		} else {
+			// Save out the image as tiff
+			var tiffFile = new File(fPath);
+			tiffSaveOptions = new TiffSaveOptions();
+			tiffSaveOptions.imageCompression = TIFFEncoding.NONE;
+			tiffSaveOptions.layers = false;
+			tiffSaveOptions.embedColorProfile = true;
+			app.activeDocument.saveAs(tiffFile, tiffSaveOptions, false, Extension.LOWERCASE);
+		}
 	} else {
 		// Save out the image as jpeg
 		var jpgFile = new File(fPath);
@@ -158,22 +177,13 @@ function format(){
 
 const doc_height = app.activeDocument.height;
 const doc_width = app.activeDocument.width;
-
-// Find the short side
-if (doc_height/doc_width > 1) {
-	var short_side = doc_width;
-} else {
-	var short_side = doc_height;
-}
-
 const image_format = format();
 
 // Extract keywords
 var doc_keywords = app.activeDocument.info.keywords;
 
-// Set constants from keywords
+// Set variables from keywords
 for(var a in doc_keywords){
-
 	if (doc_keywords[a].toString().match(/poserframes/)) {
 		var do_poserframes = true;
 	}
@@ -213,7 +223,6 @@ if (do_bw == true) {
 	} else if (image_format == "square") {
 		
 	}
-	
 } else {
 	// Color workflows
 	if (image_format == "35mm") {
@@ -245,7 +254,6 @@ if (do_bw == true) {
 	} else if (image_format == "square") {
 		
 	}
-	
 }
 
-//saveClose();
+saveClose();
