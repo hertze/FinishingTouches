@@ -2,11 +2,15 @@
 
 This script lets you define a set of Photoshop actions to be run depending on the aspect ratio of an image file and the presence of a specific keywords.
 
+## Keywords
+
 The script recognizes three keywords, set in Lightroom or in Bridge:
 
 1. **bw** -- this is a black and white image
 2. **poserframes** -- the script Poser Frames should be run
 3. **isohigh** -- this is an higher iso image, useful when adding heavier grain
+
+## Variables
 
 The variables **target_size_35mm**, **target_size_645**, **target_size_67**, **target_size_45**, **target_size_square** sets the target short side of your image. Larger images will be scaled down and smaller images scaled up.
 
@@ -36,6 +40,8 @@ The following variables are available as containers for actions sets (four per a
 20. **actions_45_bw**
 
 Two variants are set for each variable, depending on weather the keyword **isohigh** is present in an image.
+
+## Action set syntax
 
 The action set is defined as an array of value pairs (The action name exactly as it appears in the Actions palette and the name of the .atn file of the parent folder of that action).
 
