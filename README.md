@@ -1,4 +1,4 @@
-# FINISHING TOUCHES -- an action workflow script for Photoshop by Joakim Hertze.
+# FINISHING TOUCHES -- an action workflow script for Photoshop
 
 This script lets you define a set of Photoshop actions to be run depending on the aspect ratio of an image file and the presence of a specific keywords.
 
@@ -7,10 +7,10 @@ The action set is defined as an array of value pairs (The action name exactly as
 Example:
 
 	var actions_square_color_poserframes = [
-								["Heavy alt 3", "Poser Frames.atn"],
-								["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"], 
-								["Light", "Remove outside grain.atn"]
-								];
+			["Heavy alt 3", "Poser Frames.atn"],
+			["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"], 
+			["Light", "Remove outside grain.atn"]
+			];
 								
 Copy the first value directly from the Action palette. The easiest way to get the second value is to select the actions folder, click on the hamburger menu of the actions palette, choose "Save" and copy the filename with the .atn ending.
 
