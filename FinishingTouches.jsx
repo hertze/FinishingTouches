@@ -517,4 +517,4 @@ if (do_bw == true) {
 	}
 }
 
-//saveClose();
+saveClose();
