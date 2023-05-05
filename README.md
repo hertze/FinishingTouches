@@ -2,6 +2,12 @@
 
 This script lets you define a set of Photoshop actions to be run depending on the aspect ratio of an image file and the presence of a specific keywords.
 
+The script recognizes three keywords, set in Lightroom or in Bridge:
+
+1. **bw** -- this is a black and white image
+2. **poserframes** -- the script Poser Frames should be run
+3. **isohigh** -- this is an higher iso image, useful when adding heavier grain
+
 The variables **target_size_35mm**, **target_size_645**, **target_size_67**, **target_size_45**, **target_size_square** sets the target short side of your image. Larger images will be scaled down and smaller images scaled up.
 
 If the variable **tiff_to_jpg** is set to `true` TIFF images will be saved as JPGs in a folder named **jpgs**.
@@ -42,9 +48,3 @@ Example:
 			];
 								
 Copy the first value directly from the Action palette. The easiest way to get the second value is to select the actions folder, click on the hamburger menu of the actions palette, choose "Save" and copy the filename with the .atn ending.
-
-The script recognizes three keywords, set in Lightroom or in Bridge:
-
-1. **bw** -- this is a black and white image
-2. **poserframes** -- the script Poser Frames should be run
-3. **isohigh** -- this is an higher iso image, useful when adding heavier grain
