@@ -54,8 +54,7 @@ if (do_isohigh == true) {
 							
 	var actions_35mm_bw_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"],
-							["Strong", "Remove outside grain.atn"]
+							["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]
 							];
 							
 	var actions_35mm_color = [
@@ -103,8 +102,7 @@ if (do_isohigh == true) {
 							
 	var actions_645_bw_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"], 
-							["Medium", "Remove outside grain.atn"]
+							["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
 							];
 							
 	var actions_645_color = [
@@ -152,8 +150,7 @@ if (do_isohigh == true) {
 							
 	var actions_67_bw_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"], 
-							["Medium", "Remove outside grain.atn"]
+							["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
 							];
 							
 	var actions_67_color = [
@@ -201,8 +198,7 @@ if (do_isohigh == true) {
 							
 	var actions_square_bw_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"], 
-							["Medium", "Remove outside grain.atn"]
+							["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
 							];
 							
 	var actions_square_color = [
@@ -249,8 +245,7 @@ if (do_isohigh == true) {
 							
 	var actions_45_bw_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["4x5 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"], 
-							["Medium", "Remove outside grain.atn"]
+							["4x5 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
 							];
 							
 	var actions_45_color = [
