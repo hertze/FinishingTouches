@@ -58,3 +58,5 @@ Example:
 			];
 								
 Copy the first value directly from the Action palette. The easiest way to get the second value is to select the actions folder, click on the hamburger menu of the actions palette, choose "Save" and copy the filename with the .atn ending.
+
+Make sure none of the actions try to save and close the images themselves. If they do, you might end up with unexpected results and broken workflows.
