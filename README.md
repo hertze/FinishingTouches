@@ -2,6 +2,10 @@
 
 This script lets you define a set of Photoshop actions to be run depending on the aspect ratio of an image file and the presence of a specific keywords.
 
+## How to install
+
+Drop the script file **FinishingTouches.jsx** in Photoshop's scripts folder and restart Photoshop. The script should now be available in the menu **File/Automate**. I suggest making a droplet with this script.
+
 ## Keywords
 
 The script recognizes three keywords, set in Lightroom or in Bridge:
