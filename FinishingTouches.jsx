@@ -102,7 +102,7 @@ if (do_isohigh == true) {
 							
 	var actions_645_bw_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
+							["645 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
 							];
 							
 	var actions_645_color = [
@@ -110,7 +110,7 @@ if (do_isohigh == true) {
 							];
 							
 	var actions_645_bw = [
-							["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"] 
+							["645 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"] 
 							];
 	
 } else {
@@ -394,122 +394,126 @@ const doc_height = app.activeDocument.height;
 const doc_width = app.activeDocument.width;
 const image_format = format();
 
-if (do_bw == true) {
-	// BW workflows
-	if (image_format == "35mm") {
-		resizeThisImage(target_size_35mm);
-		if (do_poserframes == true) {
-			for (var i in actions_35mm_bw_poserframes) {
-				app.doAction(actions_35mm_bw_poserframes[i][0], actions_35mm_bw_poserframes[i][1]);
-			}
-		} else {
-			for (var i in actions_35mm_bw) {
-				app.doAction(actions_35mm_bw[i][0], actions_35mm_bw[i][1]);	
-			}
-		}	
-	} else if (image_format == "645") {
-		resizeThisImage(target_size_645);
-		if (do_poserframes == true) {
-			for (var i in actions_645_bw_poserframes) {
-				app.doAction(actions_645_bw_poserframes[i][0], actions_645_bw_poserframes[i][1]);
-			}
-		} else {
-			for (var i in actions_645_bw) {
-				app.doAction(actions_645_bw[i][0], actions_645_bw[i][1]);	
-			}
-		}
-	} else if (image_format == "67") {
-		resizeThisImage(target_size_67);
-		if (do_poserframes == true) {
-			for (var i in actions_67_bw_poserframes) {
-				app.doAction(actions_67_bw_poserframes[i][0], actions_67_bw_poserframes[i][1]);
-			}
-		} else {
-			for (var i in actions_67_bw) {
-				app.doAction(actions_67_bw[i][0], actions_67_bw[i][1]);	
-			}
-		}
-	} else if (image_format == "45") {
-		resizeThisImage(target_size_45);
-		if (do_poserframes == true) {
-			for (var i in actions_45_bw_poserframes) {
-				app.doAction(actions_45_bw_poserframes[i][0], actions_45_bw_poserframes[i][1]);
-			}
-		} else {
-			for (var i in actions_45_bw) {
-				app.doAction(actions_45_bw[i][0], actions_45_bw[i][1]);	
-			}
-		}
-	} else if (image_format == "square") {
-		resizeThisImage(target_size_square);
-		if (do_poserframes == true) {
-			for (var i in actions_square_bw_poserframes) {
-				app.doAction(actions_square_bw_poserframes[i][0], actions_square_bw_poserframes[i][1]);
-			}
-		} else {
-			for (var i in actions_square_bw) {
-				app.doAction(actions_square_bw[i][0], actions_square_bw[i][1]);	
-			}
-		}
-	}
-} else {
-	// Color workflows
-	if (image_format == "35mm") {
-		resizeThisImage(target_size_35mm);
-		if (do_poserframes == true) {
-			for (var i in actions_35mm_color_poserframes) {
-				app.doAction(actions_35mm_color_poserframes[i][0], actions_35mm_color_poserframes[i][1]);
-			}
-		} else {
-			for (var i in actions_35mm_color) {
-				app.doAction(actions_35mm_color[i][0], actions_35mm_color[i][1]);	
-			}
-		}
-	} else if (image_format == "645") {
-		resizeThisImage(target_size_645);
-		if (do_poserframes == true) {
-			for (var i in actions_645_color_poserframes) {
-				app.doAction(actions_645_color_poserframes[i][0], actions_645_color_poserframes[i][1]);
-			}
-		} else {
-			for (var i in actions_645_color) {
-				app.doAction(actions_645_color[i][0], actions_645_color[i][1]);	
-			}
-		}
-	} else if (image_format == "67") {
-		resizeThisImage(target_size_67);
-		if (do_poserframes == true) {
-			for (var i in actions_67_color_poserframes) {
-				app.doAction(actions_67_color_poserframes[i][0], actions_67_color_poserframes[i][1]);
-			}
-		} else {
-			for (var i in actions_67_color) {
-				app.doAction(actions_67_color[i][0], actions_67_color[i][1]);	
-			}
-		}
-	} else if (image_format == "45") {
-		resizeThisImage(target_size_45);
-		if (do_poserframes == true) {
-			for (var i in actions_45_color_poserframes) {
-				app.doAction(actions_45_color_poserframes[i][0], actions_45_color_poserframes[i][1]);
-			}
-		} else {
-			for (var i in actions_45_color) {
-				app.doAction(actions_45_color[i][0], actions_45_color[i][1]);	
-			}
-		}
-	} else if (image_format == "square") {
-		resizeThisImage(target_size_square);
-		if (do_poserframes == true) {
-			for (var i in actions_square_color_poserframes) {
-				app.doAction(actions_square_color_poserframes[i][0], actions_square_color_poserframes[i][1]);
-			}
-		} else {
-			for (var i in actions_square_color) {
-				app.doAction(actions_square_color[i][0], actions_square_color[i][1]);	
-			}
-		}
-	}
-}
+try {
 
-saveClose();
+	if (do_bw == true) {
+		// BW workflows
+		if (image_format == "35mm") {
+			resizeThisImage(target_size_35mm);
+			if (do_poserframes == true) {
+				for (var i in actions_35mm_bw_poserframes) {
+					app.doAction(actions_35mm_bw_poserframes[i][0], actions_35mm_bw_poserframes[i][1]);
+				}
+			} else {
+				for (var i in actions_35mm_bw) {
+					app.doAction(actions_35mm_bw[i][0], actions_35mm_bw[i][1]);	
+				}
+			}	
+		} else if (image_format == "645") {
+			resizeThisImage(target_size_645);
+			if (do_poserframes == true) {
+				for (var i in actions_645_bw_poserframes) {
+					app.doAction(actions_645_bw_poserframes[i][0], actions_645_bw_poserframes[i][1]);
+				}
+			} else {
+				for (var i in actions_645_bw) {
+					app.doAction(actions_645_bw[i][0], actions_645_bw[i][1]);	
+				}
+			}
+		} else if (image_format == "67") {
+			resizeThisImage(target_size_67);
+			if (do_poserframes == true) {
+				for (var i in actions_67_bw_poserframes) {
+					app.doAction(actions_67_bw_poserframes[i][0], actions_67_bw_poserframes[i][1]);
+				}
+			} else {
+				for (var i in actions_67_bw) {
+					app.doAction(actions_67_bw[i][0], actions_67_bw[i][1]);	
+				}
+			}
+		} else if (image_format == "45") {
+			resizeThisImage(target_size_45);
+			if (do_poserframes == true) {
+				for (var i in actions_45_bw_poserframes) {
+					app.doAction(actions_45_bw_poserframes[i][0], actions_45_bw_poserframes[i][1]);
+				}
+			} else {
+				for (var i in actions_45_bw) {
+					app.doAction(actions_45_bw[i][0], actions_45_bw[i][1]);	
+				}
+			}
+		} else if (image_format == "square") {
+			resizeThisImage(target_size_square);
+			if (do_poserframes == true) {
+				for (var i in actions_square_bw_poserframes) {
+					app.doAction(actions_square_bw_poserframes[i][0], actions_square_bw_poserframes[i][1]);
+				}
+			} else {
+				for (var i in actions_square_bw) {
+					app.doAction(actions_square_bw[i][0], actions_square_bw[i][1]);	
+				}
+			}
+		}
+	} else {
+		// Color workflows
+		if (image_format == "35mm") {
+			resizeThisImage(target_size_35mm);
+			if (do_poserframes == true) {
+				for (var i in actions_35mm_color_poserframes) {
+					app.doAction(actions_35mm_color_poserframes[i][0], actions_35mm_color_poserframes[i][1]);
+				}
+			} else {
+				for (var i in actions_35mm_color) {
+					app.doAction(actions_35mm_color[i][0], actions_35mm_color[i][1]);	
+				}
+			}
+		} else if (image_format == "645") {
+			resizeThisImage(target_size_645);
+			if (do_poserframes == true) {
+				for (var i in actions_645_color_poserframes) {
+					app.doAction(actions_645_color_poserframes[i][0], actions_645_color_poserframes[i][1]);
+				}
+			} else {
+				for (var i in actions_645_color) {
+					app.doAction(actions_645_color[i][0], actions_645_color[i][1]);	
+				}
+			}
+		} else if (image_format == "67") {
+			resizeThisImage(target_size_67);
+			if (do_poserframes == true) {
+				for (var i in actions_67_color_poserframes) {
+					app.doAction(actions_67_color_poserframes[i][0], actions_67_color_poserframes[i][1]);
+				}
+			} else {
+				for (var i in actions_67_color) {
+					app.doAction(actions_67_color[i][0], actions_67_color[i][1]);	
+				}
+			}
+		} else if (image_format == "45") {
+			resizeThisImage(target_size_45);
+			if (do_poserframes == true) {
+				for (var i in actions_45_color_poserframes) {
+					app.doAction(actions_45_color_poserframes[i][0], actions_45_color_poserframes[i][1]);
+				}
+			} else {
+				for (var i in actions_45_color) {
+					app.doAction(actions_45_color[i][0], actions_45_color[i][1]);	
+				}
+			}
+		} else if (image_format == "square") {
+			resizeThisImage(target_size_square);
+			if (do_poserframes == true) {
+				for (var i in actions_square_color_poserframes) {
+					app.doAction(actions_square_color_poserframes[i][0], actions_square_color_poserframes[i][1]);
+				}
+			} else {
+				for (var i in actions_square_color) {
+					app.doAction(actions_square_color[i][0], actions_square_color[i][1]);	
+				}
+			}
+		}
+	}
+	
+	saveClose();
+
+} catch(e) { alert(e); }
