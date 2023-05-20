@@ -48,8 +48,7 @@ if (do_isohigh == true) {
 	
 	var actions_35mm_color_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"],
-							["Light", "Remove outside grain.atn"]
+							["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]
 							];
 							
 	var actions_35mm_bw_poserframes = [
@@ -69,14 +68,12 @@ if (do_isohigh == true) {
 
 	var actions_35mm_color_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"],
-							["Light", "Remove outside grain.atn"]
+							["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"]
 							];
 							
 	var actions_35mm_bw_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"],
-							["Strong", "Remove outside grain.atn"]
+							["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]
 							];
 							
 	var actions_35mm_color = [
@@ -117,14 +114,12 @@ if (do_isohigh == true) {
 	
 	var actions_645_color_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"], 
-							["Light", "Remove outside grain.atn"]
+							["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]
 							];
 							
 	var actions_645_bw_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
-							["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"], 
-							["Medium", "Remove outside grain.atn"]
+							["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
 							];
 							
 	var actions_645_color = [
@@ -313,7 +308,7 @@ function saveClose() {
 			jpgSaveOptions.embedColorProfile = true;
 			jpgSaveOptions.matte = MatteType.NONE;
 			jpgSaveOptions.quality = 12;
-			app.activeDocument.saveAs(jpgFile, jpgSaveOptions, false, Extension.LOWERCASE);
+			app.activeDocument.saveAs(jpgFile, jpgSaveOptions, true, Extension.LOWERCASE);
 		} else {
 			// Save out the image as tiff
 			var tiffFile = new File(fPath);
@@ -333,7 +328,7 @@ function saveClose() {
 		jpgSaveOptions.quality = 12;
 		app.activeDocument.saveAs(jpgFile, jpgSaveOptions, false, Extension.LOWERCASE);
 	}
-	app.activeDocument.close();
+	app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
 }
 
 function resizeThisImage(thisSize) {
