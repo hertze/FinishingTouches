@@ -47,12 +47,12 @@ for(var a in doc_keywords){
 if (do_isohigh == true) {
 	
 	var actions_35mm_color_poserframes = [
-							["Heavy alt 3", "Poser Frames.atn"],
+							["Light alt 1", "Poser Frames.atn"],
 							["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]
 							];
 							
 	var actions_35mm_bw_poserframes = [
-							["Heavy alt 3", "Poser Frames.atn"],
+							["Light alt 1", "Poser Frames.atn"],
 							["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]
 							];
 							
@@ -67,12 +67,12 @@ if (do_isohigh == true) {
 } else {
 
 	var actions_35mm_color_poserframes = [
-							["Heavy alt 3", "Poser Frames.atn"],
+							["Extravagant 35 alt 1", "Poser Frames.atn"],
 							["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"]
 							];
 							
 	var actions_35mm_bw_poserframes = [
-							["Heavy alt 3", "Poser Frames.atn"],
+							["Extravagant 35 alt 1", "Poser Frames.atn"],
 							["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]
 							];
 							
@@ -113,12 +113,12 @@ if (do_isohigh == true) {
 } else {
 	
 	var actions_645_color_poserframes = [
-							["Heavy alt 3", "Poser Frames.atn"],
+							["Heavy alt 1", "Poser Frames.atn"],
 							["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]
 							];
 							
 	var actions_645_bw_poserframes = [
-							["Heavy alt 3", "Poser Frames.atn"],
+							["Heavy alt 1", "Poser Frames.atn"],
 							["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
 							];
 							
@@ -390,6 +390,10 @@ const doc_width = app.activeDocument.width;
 const image_format = format();
 
 try {
+	
+	if (app.activeDocument.bitsPerChannel == BitsPerChannelType.SIXTEEN) {
+		app.activeDocument.bitsPerChannel = BitsPerChannelType.EIGHT;
+	}
 
 	if (do_bw == true) {
 		// BW workflows
