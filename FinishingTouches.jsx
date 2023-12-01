@@ -40,11 +40,16 @@ for(var a in doc_keywords){
 }
 
 
-// Actions
+
+// ACTION SETS for you to change to whatever you like
+
+// ---------------------------------------------------------------------
 
 // 35mm
 
 if (do_isohigh == true) {
+	
+	// If isohigh...
 	
 	var actions_35mm_color_poserframes = [
 							["Light alt 1", "Poser Frames.atn"],
@@ -91,6 +96,8 @@ if (do_isohigh == true) {
 
 if (do_isohigh == true) {
 	
+	// If isohigh...
+	
 	var actions_645_color_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
 							["645 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"], 
@@ -136,6 +143,8 @@ if (do_isohigh == true) {
 //67
 
 if (do_isohigh == true) {
+	
+	// If isohigh...
 	
 	var actions_67_color_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
@@ -185,6 +194,8 @@ if (do_isohigh == true) {
 
 if (do_isohigh == true) {
 	
+	// If isohigh...
+	
 	var actions_square_color_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
 							["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"], 
@@ -231,6 +242,8 @@ if (do_isohigh == true) {
 //4x5
 
 if (do_isohigh == true) {
+	
+	// If isohigh...
 	
 	var actions_45_color_poserframes = [
 							["Heavy alt 3", "Poser Frames.atn"],
