@@ -391,7 +391,7 @@ const image_format = format();
 
 try {
 	
-	if (app.activeDocument.bitsPerChannel == BitsPerChannelType.SIXTEEN) {
+	if (app.activeDocument.bitsPerChannel == BitsPerChannelType.SIXTEEN && do_poserframes == true) {
 		app.activeDocument.bitsPerChannel = BitsPerChannelType.EIGHT;
 	}
 
