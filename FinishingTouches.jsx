@@ -135,7 +135,7 @@ function saveClose() {
 }
 
 function resizeThisImage(thisSize) {
-	if (doc_height/doc_width > 1) {
+	if (app.activeDocument.height/app.activeDocument.width > 1) {
 		// Portrait
 		app.activeDocument.resizeImage(UnitValue(thisSize, "px"), null, null, ResampleMethod.AUTOMATIC);
 	} else {
@@ -145,17 +145,17 @@ function resizeThisImage(thisSize) {
 
 function format(){
 	// Determine format
-	if (doc_height > doc_width) {
-		if (doc_height/doc_width < 1.1) {
+	if (app.activeDocument.height > app.activeDocument.width) {
+		if (app.activeDocument.height/app.activeDocument.width < 1.1) {
 			return "1x1";
 		}
-		else if (doc_height/doc_width > 1.1 && doc_height/doc_width < 1.2) {
+		else if (app.activeDocument.height/app.activeDocument.width > 1.1 && app.activeDocument.height/app.activeDocument.width < 1.2) {
 			return "6x7";
 		}
-		else if (doc_height/doc_width > 1.2 && doc_height/doc_width < 1.3) {
+		else if (app.activeDocument.height/app.activeDocument.width > 1.2 && app.activeDocument.height/app.activeDocument.width < 1.3) {
 			return "4x5";
 		}
-		else if (doc_height/doc_width > 1.3 && doc_height/doc_width < 1.4) {
+		else if (app.activeDocument.height/app.activeDocument.width > 1.3 && app.activeDocument.height/app.activeDocument.width < 1.4) {
 			return "4x3";
 		}
 		else {
@@ -163,16 +163,16 @@ function format(){
 		}
 	}
 	else {
-		if (doc_width/doc_height < 1.1) {
+		if (app.activeDocument.width/app.activeDocument.height < 1.1) {
 			return "1x1";
 		}
-		else if (doc_width/doc_height > 1.1 && doc_width/doc_height < 1.2) {
+		else if (app.activeDocument.width/app.activeDocument.height > 1.1 && app.activeDocument.width/app.activeDocument.height < 1.2) {
 			return "6x7";
 		}
-		else if (doc_width/doc_height > 1.2 && doc_width/doc_height < 1.3) {
+		else if (app.activeDocument.width/app.activeDocument.height > 1.2 && app.activeDocument.width/app.activeDocument.height < 1.3) {
 			return "4x5";
 		}
-		else if (doc_width/doc_height > 1.3 && doc_width/doc_height < 1.4) {
+		else if (app.activeDocument.width/app.activeDocument.height > 1.3 && app.activeDocument.width/app.activeDocument.height < 1.4) {
 			return "4x3";
 		}
 		else {
@@ -184,10 +184,6 @@ function format(){
 
 // M A I N
 
-const doc_height = app.activeDocument.height;
-const doc_width = app.activeDocument.width;
-const image_format = format();
-
 try {
 	// Extract keywords
 	var doc_keywords = app.activeDocument.info.keywords;
@@ -195,7 +191,7 @@ try {
 	for(var a in doc_keywords){
 		// Loop through all keywords in action_library and look for match
 		for(var b in action_library){
-			if (action_library[b].keyword == doc_keywords[a].toString() && action_library[b].aspect_ratio == image_format) {
+			if (action_library[b].keyword == doc_keywords[a].toString() && action_library[b].aspect_ratio == format()) {
 				// Resize if needed
 				if (action_library[b].target_size) {
 					resizeThisImage(action_library[b].target_size);
