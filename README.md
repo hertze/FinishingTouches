@@ -16,7 +16,7 @@ Finishing Touches has a library of keywords tied to Photoshop actions in the for
 		"keyword": the keyword you set in Lightroom,
 		"aspect_ratio": the aspect ratio: 2x3, 4x3, 4x5, 6x7 or 1x1,
 		"target_size": the short-side dimension of the image in pixels,
-		"action": [[the name of the first action as it is displayed in the Actions palette, the path to the .atn file for the action], [...]]
+		"actions": [[the name of the first action as it is displayed in the Actions palette, the path to the .atn file for the action], [...]]
 	}
 	
 This is a real example of a library object:
@@ -25,7 +25,7 @@ This is a real example of a library object:
 		"keyword": "bw",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"action": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
+		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	}
 	
 The keyword `bw` is set in Lightroom (or Bridge). When Finishing Touches finds this keyword in an image file it runs the action `35mm ISO 3200 (3600 Monochrome)` for images with a 2x3 aspect ratio. It also resizes this images to 3600px on the short side. Note where you need the quotation marks and the square brackets around the action. All library objects but the last one needs a comma after the closing `}`. The item `target_size` is optional.
