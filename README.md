@@ -10,7 +10,7 @@ This script executes Photoshop actions from keywords embedded in an image file. 
 
 ## Defining actions
 
-Finishing Touches has a library of keywords tied to Photoshop actions in the form of javascript objects, in the following form:
+Finishing Touches has a library of keywords tied to Photoshop actions in the form of javascript objects, of the following form:
 
 	{
 		"keyword": the keyword you set in Lightroom,
