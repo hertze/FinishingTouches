@@ -32,14 +32,14 @@ const action_library = [
 		"keyword": "2. color",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"actions": [["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
+		"actions": [["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
 		"keyword": "2. bw",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
+		"actions": [["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	},
 	
 	{
