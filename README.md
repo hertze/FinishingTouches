@@ -28,7 +28,7 @@ This is a real example of a library object:
 		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	}
 	
-The keyword `bw` is set in Lightroom (or Bridge). When Finishing Touches finds this keyword in an image file it runs the action `35mm ISO 3200 (3600 Monochrome)` for images with a 2x3 aspect ratio. It also resizes this images to 3600px on the short side. Note where you need the quotation marks and the square brackets around the action. All library objects but the last one needs a comma after the closing `}`. The item `target_size` is optional.
+The keyword `bw` is set in Lightroom (or Bridge). When Finishing Touches finds this keyword in an image file it runs the action `35mm ISO 3200 (3600 Monochrome)` for images with a 2x3 aspect ratio. It also resizes this images to 3600px on the short side. Note where you need the quotation marks and the square brackets around the actions. All library objects but the last one needs a comma after the closing `}`. The item `target_size` is optional.
 
 You can add as many actions as you like to a library object and they will be executed in the order you've listed them. 
 
@@ -37,6 +37,10 @@ When you want to change to a different action, copy the first value (i.e. **35mm
 Note the quotation marks and the comma after all value pairs but the last one.
 
 Make sure none of the actions you define in this script try to save and close the images themselves. If they do, you might end up with unexpected results and broken workflows.
+
+## Tips
+
+Oftentimes the order of executed actions is important. You can define a list of actions to be executed with one keyword, but a more flexible way is to only define one action per keyword and then add several keywords to the image to have several actions executed. The list of keywords will then define the order of execution. Unfortunately, all Adobe products always save the keywords in alphabetical order, so as a work-around I suggest adding a number to the start of your keywords (i.e. `1. color` instead of just `color`), so they sort in the correct order.
 
 ## Script behaviour settings
 
