@@ -216,5 +216,5 @@ try {
 			}
 		}
 	}
-	//saveClose();
+	saveClose();
 } catch(e) { alert(e); }
