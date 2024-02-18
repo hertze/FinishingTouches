@@ -9,11 +9,24 @@
 #target photoshop
 
 
-// Keyword library -----------------------------------------------------
+// LIBRARY -------------------------------------------------------------
 //
 // Change or add all the library objects you like!
+//
 
 const action_library = [
+	
+	{
+		"keyword": "1. poserframes",
+		"aspect_ratio": "2x3",
+		"actions": [["Matted crop, thin", "Poserframes 2x3.atn"]]
+	},
+	
+	{
+		"keyword": "1. poserframes",
+		"aspect_ratio": "4x3",
+		"actions": [["Matted crop, Pentax, thin", "Poserframes 4x3.atn"]]
+	},
 	
 	{
 		"keyword": "2. color",
@@ -69,12 +82,6 @@ const action_library = [
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
-	},
-	
-	{
-		"keyword": "1. poserframes",
-		"aspect_ratio": "2x3",
-		"actions": [["Matted crop, thin", "Poserframes 2x3.atn"]]
 	}
 	
 ];
