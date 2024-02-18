@@ -11,7 +11,7 @@
 
 // Keyword library -----------------------------------------------------
 //
-// Change or add all the keywords you like
+// Change or add all the library objects you like!
 
 const action_library = [
 	
