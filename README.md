@@ -28,7 +28,7 @@ This is a real example of a library object:
 		"action": ["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]
 	}
 	
-Note where you need the quotation marks and the square brackets around the action. All library objects but the last one needs a comma after the closing `}`. The item `target_size` is optional.
+The keyword `bw` is set in Lightroom (or Bridge), and this then runs the action `35mm ISO 3200 (3600 Monochrome)` for images with a 2x3 aspect ratio. It also resizes this images to 3600px on the short side. Note where you need the quotation marks and the square brackets around the action. All library objects but the last one needs a comma after the closing `}`. The item `target_size` is optional.
 
 When you want to change to a different action, copy the first value (i.e. **35mm ISO 3200 (3600 Monochrome)**) directly from the actions palette. The easiest way to get the second value (i.e. **The Film Grain 3600 Monochrome.atn**) is to select the actions folder, click on the hamburger menu of the actions palette, choose **Save** and copy the filename with the **.atn** ending.
 
