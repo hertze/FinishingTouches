@@ -19,56 +19,56 @@ const action_library = [
 		"keyword": "color",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"action": ["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]
+		"actions": [["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
 		"keyword": "bw",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"action": ["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]
+		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	},
 	
 	{
 		"keyword": "color",
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
-		"action": ["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]
+		"actions": [["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keyword": "bw",
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
-		"action": ["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
+		"actions": [["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
 		"keyword": "color",
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"action": ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]
+		"actions": [["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keyword": "bw",
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"action": ["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
+		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
 		"keyword": "color",
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
-		"action": ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]
+		"actions": [["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keyword": "bw",
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
-		"action": ["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]
+		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	}
 	
 ];
@@ -196,8 +196,10 @@ try {
 				if (action_library[b].target_size) {
 					resizeThisImage(action_library[b].target_size);
 				}
-				// Execute action
-				app.doAction(action_library[b].action[0], action_library[b].action[1]);
+				// Execute actions
+				for(var c in action_library[b].actions) {
+					app.doAction(action_library[b].actions[c][0], action_library[b].actions[c][1]);
+				}
 			}
 		}
 	}

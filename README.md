@@ -1,6 +1,6 @@
 # FINISHING TOUCHES -- an action workflow script for Photoshop
 
-This script executes Photoshop actions from keywords embedded in an image file. In a way, the script "expands" a keyword into a Photoshop action, taking the aspect ratio of the image into consideration. If you want it to, the script will also resize your image to a target size.
+This script executes Photoshop actions from keywords embedded in an image file. In a way, the script "expands" a keyword into a Photoshop action, taking the aspect ratio of the image into consideration. If you want it to, the script will also resize your image to a target size. You can have as many keywords as you like in a file and the script will the execute all the corresponding actions in the order they have in the file.
 
 ## How to install
 
@@ -16,7 +16,7 @@ Finishing Touches has a library of keywords tied to Photoshop actions in the for
 		"keyword": the keyword you set in Lightroom,
 		"aspect_ratio": the aspect ratio: 2x3, 4x3, 4x5, 6x7 or 1x1,
 		"target_size": the short-side dimension of the image in pixels,
-		"action": [the action name as displayed in the Actions palette, the path to the .atn file for the action]
+		"action": [[the name of the first action as it is displayed in the Actions palette, the path to the .atn file for the action], [...]]
 	}
 	
 This is a real example of a library object:
@@ -25,10 +25,12 @@ This is a real example of a library object:
 		"keyword": "bw",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"action": ["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]
+		"action": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	}
 	
 The keyword `bw` is set in Lightroom (or Bridge). When Finishing Touches finds this keyword in an image file it runs the action `35mm ISO 3200 (3600 Monochrome)` for images with a 2x3 aspect ratio. It also resizes this images to 3600px on the short side. Note where you need the quotation marks and the square brackets around the action. All library objects but the last one needs a comma after the closing `}`. The item `target_size` is optional.
+
+You can add as many actions as you like to a library object and they will be executed in the order you've listed them. 
 
 When you want to change to a different action, copy the first value (i.e. **35mm ISO 3200 (3600 Monochrome)**) directly from the actions palette. The easiest way to get the second value (i.e. **The Film Grain 3600 Monochrome.atn**) is to select the actions folder, click on the hamburger menu of the actions palette, choose **Save** and copy the filename with the **.atn** ending.
 
