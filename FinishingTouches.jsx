@@ -114,7 +114,7 @@ function format(){
 			return "4x5";
 		}
 		else if (doc_height/doc_width > 1.3 && doc_height/doc_width < 1.4) {
-			return "645";
+			return "4x3";
 		}
 		else {
 			return "2x3";
@@ -131,7 +131,7 @@ function format(){
 			return "4x5";
 		}
 		else if (doc_width/doc_height > 1.3 && doc_width/doc_height < 1.4) {
-			return "645";
+			return "4x3";
 		}
 		else {
 			return "2x3";
