@@ -1,6 +1,6 @@
 # FINISHING TOUCHES -- an action workflow script for Photoshop
 
-This script executes Photoshop actions from keywords present in an image file.
+This script executes Photoshop actions from keywords embedded in an image file. In a way, the script "expands" a keyword into a Photoshop action, taking the aspect ratio of the image into consideration. If you want it to, the script will also resize your image to a target size.
 
 ## How to install
 
