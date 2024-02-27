@@ -17,124 +17,136 @@
 const action_library = [
 	
 	{
-		"keyword": "1. poserframes",
+		"keyword": "1. halation_color",
+		"aspect_ratio": "2x3",
+		"actions": [["Halation regular", "Halation.atn"]]
+	},
+	
+	{
+		"keyword": "1. halation_bw",
+		"aspect_ratio": "2x3",
+		"actions": [["Halation regular", "Halation mono.atn"]]
+	},
+	
+	{
+		"keyword": "2. poserframes",
 		"aspect_ratio": "2x3",
 		"actions": [["Matted crop, thin", "Poserframes 2x3.atn"]]
 	},
 	
 	{
-		"keyword": "1. poserframes",
+		"keyword": "2. poserframes",
 		"aspect_ratio": "4x3",
 		"actions": [["Matted crop, Pentax, thin", "Poserframes 4x3.atn"]]
 	},
 	
 	{
-		"keyword": "2. color",
+		"keyword": "3. color",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
-		"keyword": "2. color highiso",
+		"keyword": "3. color highiso",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw",
+		"keyword": "3. bw",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw highiso",
+		"keyword": "3. bw highiso",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. color",
+		"keyword": "3. color",
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "2. color highiso",
+		"keyword": "3. color highiso",
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw",
+		"keyword": "3. bw",
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw highiso",
+		"keyword": "3. bw highiso",
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. color",
+		"keyword": "3. color",
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "2. color highiso",
+		"keyword": "3. color highiso",
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw",
+		"keyword": "3. bw",
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw highiso",
+		"keyword": "3. bw highiso",
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. color",
+		"keyword": "3. color",
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "2. color highiso",
+		"keyword": "3. color highiso",
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw",
+		"keyword": "3. bw",
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw highiso",
+		"keyword": "3. bw highiso",
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
@@ -272,5 +284,5 @@ try {
 			}
 		}
 	}
-	//saveClose();
+	saveClose();
 } catch(e) { alert(e); }
