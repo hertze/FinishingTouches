@@ -258,7 +258,6 @@ function format(){
 // M A I N
 
 try {
-	alert(format());
 	// Extract keywords
 	var doc_keywords = app.activeDocument.info.keywords;
 	// Loop through all keywords in file
@@ -277,5 +276,5 @@ try {
 			}
 		}
 	}
-	//saveClose();
+	saveClose();
 } catch(e) { alert(e); }
