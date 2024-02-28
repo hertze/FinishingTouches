@@ -19,13 +19,13 @@ const action_library = [
 	{
 		"keyword": "1. halation_color",
 		"aspect_ratio": "2x3",
-		"actions": [["Halation regular", "Halation.atn"]]
+		"actions": [["Halation, 35mm", "Halation.atn"]]
 	},
 	
 	{
 		"keyword": "1. halation_bw",
 		"aspect_ratio": "2x3",
-		"actions": [["Halation regular", "Halation mono.atn"]]
+		"actions": [["Halation, 35mm", "Halation mono.atn"]]
 	},
 	
 	{
@@ -243,6 +243,7 @@ function format() {
 // M A I N
 
 try {
+	alert(format());
 	// Extract keywords
 	var doc_keywords = app.activeDocument.info.keywords;
 	// Loop through all keywords in file
@@ -261,5 +262,5 @@ try {
 			}
 		}
 	}
-	//saveClose();
+	saveClose();
 } catch(e) { alert(e); }
