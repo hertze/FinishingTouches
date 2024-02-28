@@ -25,7 +25,7 @@ const action_library = [
 	{
 		"keyword": "1. halation_bw",
 		"aspect_ratio": "2x3",
-		"actions": [["Halation, 35mm", "Halation mono.atn"]]
+		"actions": [["Halation, 35mm", "Halation, mono.atn"]]
 	},
 	
 	{
