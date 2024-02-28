@@ -226,40 +226,32 @@ function resizeThisImage(thisSize) {
 
 function format(){
 	// Determine format
-	if (app.activeDocument.height > app.activeDocument.width) {
-		if (app.activeDocument.height/app.activeDocument.width < 1.1) {
+	var aspectRatio = app.activeDocument.height / app.activeDocument.width;
+	if (aspectRatio > 1) {
+		if (aspectRatio < 1.1) {
 			return "1x1";
-		}
-		else if (app.activeDocument.height/app.activeDocument.width > 1.1 && app.activeDocument.height/app.activeDocument.width < 1.2) {
+		} else if (aspectRatio < 1.2) {
 			return "6x7";
-		}
-		else if (app.activeDocument.height/app.activeDocument.width > 1.2 && app.activeDocument.height/app.activeDocument.width < 1.3) {
+		} else if (aspectRatio < 1.3) {
 			return "4x5";
-		}
-		else if (app.activeDocument.height/app.activeDocument.width > 1.3 && app.activeDocument.height/app.activeDocument.width < 1.4) {
+		} else if (aspectRatio < 1.4) {
 			return "4x3";
+		} else {
+			return "2x3";
 		}
-		else {
+	} else {
+		if (1 / aspectRatio < 1.1) {
+			return "1x1";
+		} else if (1 / aspectRatio < 1.2) {
+			return "6x7";
+		} else if (1 / aspectRatio < 1.3) {
+			return "4x5";
+		} else if (1 / aspectRatio < 1.4) {
+			return "4x3";
+		} else {
 			return "2x3";
 		}
 	}
-	else {
-		if (app.activeDocument.width/app.activeDocument.height < 1.1) {
-			return "1x1";
-		}
-		else if (app.activeDocument.width/app.activeDocument.height > 1.1 && app.activeDocument.width/app.activeDocument.height < 1.2) {
-			return "6x7";
-		}
-		else if (app.activeDocument.width/app.activeDocument.height > 1.2 && app.activeDocument.width/app.activeDocument.height < 1.3) {
-			return "4x5";
-		}
-		else if (app.activeDocument.width/app.activeDocument.height > 1.3 && app.activeDocument.width/app.activeDocument.height < 1.4) {
-			return "4x3";
-		}
-		else {
-			return "2x3";
-		}
-	}	
 }
 
 
@@ -285,5 +277,5 @@ try {
 			}
 		}
 	}
-	saveClose();
+	//saveClose();
 } catch(e) { alert(e); }
