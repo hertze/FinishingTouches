@@ -17,71 +17,115 @@
 const action_library = [
 	
 	{
-		"keyword": "1. poserframes",
-		"aspect_ratio": "2x3",
-		"actions": [["Matted crop, thin", "Poserframes 2x3.atn"]]
-	},
-	
-	{
-		"keyword": "1. poserframes",
-		"aspect_ratio": "4x3",
-		"actions": [["Matted crop, Pentax, thin", "Poserframes 4x3.atn"]]
-	},
-	
-	{
-		"keyword": "2. color",
+		"keyword": "color",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"actions": [["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
+		"actions": [["Halation, 35mm", "Halation.atn"], ["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw",
+		"keyword": "color highiso",
+		"aspect_ratio": "2x3",
+		"target_size": 3600,
+		"actions": [["Halation, 35mm", "Halation.atn"], ["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
+	},
+	
+	{
+		"keyword": "bw",
+		"aspect_ratio": "2x3",
+		"target_size": 3600,
+		"actions": [["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
+	},
+	
+	{
+		"keyword": "bw highiso",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. color",
+		"keyword": "color",
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
-		"actions": [["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120", "Halation.atn"], ["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw",
+		"keyword": "color highiso",
+		"aspect_ratio": "4x3",
+		"target_size": 6000,
+		"actions": [["Halation, 120", "Halation.atn"], ["645 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+	},
+	
+	{
+		"keyword": "bw",
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. color",
-		"aspect_ratio": "6x7",
+		"keyword": "bw highiso",
+		"aspect_ratio": "4x3",
 		"target_size": 6000,
-		"actions": [["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw",
+		"keyword": "color",
+		"aspect_ratio": "6x7",
+		"target_size": 6000,
+		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+	},
+	
+	{
+		"keyword": "color highiso",
+		"aspect_ratio": "6x7",
+		"target_size": 6000,
+		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+	},
+	
+	{
+		"keyword": "bw",
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. color",
-		"aspect_ratio": "1x1",
+		"keyword": "bw highiso",
+		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"actions": [["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "2. bw",
+		"keyword": "color",
+		"aspect_ratio": "1x1",
+		"target_size": 6000,
+		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+	},
+	
+	{
+		"keyword": "color highiso",
+		"aspect_ratio": "1x1",
+		"target_size": 6000,
+		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+	},
+	
+	{
+		"keyword": "bw",
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
+	},
+	
+	{
+		"keyword": "bw highiso",
+		"aspect_ratio": "1x1",
+		"target_size": 6000,
+		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	}
 	
 ];
@@ -158,40 +202,32 @@ function resizeThisImage(thisSize) {
 
 function format(){
 	// Determine format
-	if (app.activeDocument.height > app.activeDocument.width) {
-		if (app.activeDocument.height/app.activeDocument.width < 1.1) {
+	var aspectRatio = app.activeDocument.height / app.activeDocument.width;
+	if (aspectRatio > 1) {
+		if (aspectRatio < 1.1) {
 			return "1x1";
-		}
-		else if (app.activeDocument.height/app.activeDocument.width > 1.1 && app.activeDocument.height/app.activeDocument.width < 1.2) {
+		} else if (aspectRatio < 1.2) {
 			return "6x7";
-		}
-		else if (app.activeDocument.height/app.activeDocument.width > 1.2 && app.activeDocument.height/app.activeDocument.width < 1.3) {
+		} else if (aspectRatio < 1.3) {
 			return "4x5";
-		}
-		else if (app.activeDocument.height/app.activeDocument.width > 1.3 && app.activeDocument.height/app.activeDocument.width < 1.4) {
+		} else if (aspectRatio < 1.4) {
 			return "4x3";
+		} else {
+			return "2x3";
 		}
-		else {
+	} else {
+		if (1 / aspectRatio < 1.1) {
+			return "1x1";
+		} else if (1 / aspectRatio < 1.2) {
+			return "6x7";
+		} else if (1 / aspectRatio < 1.3) {
+			return "4x5";
+		} else if (1 / aspectRatio < 1.4) {
+			return "4x3";
+		} else {
 			return "2x3";
 		}
 	}
-	else {
-		if (app.activeDocument.width/app.activeDocument.height < 1.1) {
-			return "1x1";
-		}
-		else if (app.activeDocument.width/app.activeDocument.height > 1.1 && app.activeDocument.width/app.activeDocument.height < 1.2) {
-			return "6x7";
-		}
-		else if (app.activeDocument.width/app.activeDocument.height > 1.2 && app.activeDocument.width/app.activeDocument.height < 1.3) {
-			return "4x5";
-		}
-		else if (app.activeDocument.width/app.activeDocument.height > 1.3 && app.activeDocument.width/app.activeDocument.height < 1.4) {
-			return "4x3";
-		}
-		else {
-			return "2x3";
-		}
-	}	
 }
 
 
