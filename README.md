@@ -38,12 +38,14 @@ Note the quotation marks and the comma after all value pairs but the last one.
 
 Make sure none of the actions you define in this script try to save and close the images themselves. If they do, you might end up with unexpected results and broken workflows.
 
-## Tips
-
-Oftentimes the order of executed actions is important. You can define a list of actions to be executed with one keyword, but a more flexible way is to only define one action per keyword and then add several keywords to the image to have several actions executed. The list of keywords will then define the order of execution. Unfortunately, all Adobe products always save the keywords in alphabetical order, so as a work-around I suggest adding a number to the start of your keywords (i.e. `1. color` instead of just `color`), so they sort in the correct order.
-
 ## Script behaviour settings
 
 All settings are defined as javascript variables. When you make changes, mind quotation marks, brackets and commas.
 
 If the variable **tiff_to_jpg** is set to `true` TIFF images will be saved as JPGs in a folder named **jpgs**. If set to `false`the image will be saved as a TIFF file.
+
+The variable **keyword_order** is an array (list) of keywords, that defines the order they should be executed.
+
+## Tips
+
+Oftentimes the order of executed actions is important. You can define a list of actions to be executed with one keyword, but a more flexible way is to only define one action per keyword and then add several keywords to the image to have several actions executed. The list of keywords will then define the order of execution. Unfortunately, all Adobe products always save the keywords in alphabetical order, so as a work-around I suggest adding a number to the start of your keywords (i.e. `1. color` instead of just `color`), so they sort in the correct order. You can also use the setting **keyword_order** to define the order in which the keywords should be executed.
