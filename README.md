@@ -44,7 +44,7 @@ All settings are defined as javascript variables. When you make changes, mind qu
 
 If the variable **tiff_to_jpg** is set to `true` TIFF images will be saved as JPGs in a folder named **jpgs**. If set to `false`the image will be saved as a TIFF file.
 
-The variable **keyword_order** is an array (list) of keywords, that defines the order they should be executed.
+The variable **keyword_order** is an array (list) of keywords, that defines the order in which they should be executed.
 
 ## Tips
 
