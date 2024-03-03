@@ -20,14 +20,14 @@ const action_library = [
 		"keyword": "color",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"actions": [["Halation, 35mm", "Halation.atn"], ["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"]]
+		"actions": [["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
 		"keyword": "color highiso",
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"actions": [["Halation, 35mm", "Halation.atn"], ["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
+		"actions": [["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
@@ -42,6 +42,20 @@ const action_library = [
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
+	},
+	
+	{
+		"keyword": "halation",
+		"aspect_ratio": "2x3",
+		"target_size": 3600,
+		"actions": [["Halation, 35mm", "Halation.atn"]]
+	},
+	
+	{
+		"keyword": "poserframes",
+		"aspect_ratio": "2x3",
+		"target_size": 3600,
+		"actions": [["Matted crop", "Poserframes 2x3"]]
 	},
 	
 	{
@@ -73,6 +87,13 @@ const action_library = [
 	},
 	
 	{
+		"keyword": "halation",
+		"aspect_ratio": "4x3",
+		"target_size": 6000,
+		"actions": [["Halation, 120", "Halation.atn"]]
+	},
+	
+	{
 		"keyword": "color",
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
@@ -84,6 +105,13 @@ const action_library = [
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+	},
+	
+	{
+		"keyword": "halation",
+		"aspect_ratio": "6x7",
+		"target_size": 6000,
+		"actions": [["Halation, 120", "Halation.atn"]]
 	},
 	
 	{
@@ -112,6 +140,13 @@ const action_library = [
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+	},
+	
+	{
+		"keyword": "halatioin",
+		"aspect_ratio": "1x1",
+		"target_size": 6000,
+		"actions": [["Halation, 120", "Halation.atn"]]
 	},
 	
 	{
@@ -134,6 +169,7 @@ const action_library = [
 // Script behaviour ----------------------------------------------------
 
 var tiff_to_jpg = true;
+var keyword_order = ["halation", "poserframes", "color"];
 
 // ---------------------------------------------------------------------
 
@@ -230,12 +266,48 @@ function format(){
 	}
 }
 
+function reorderArray(originalArray, orderArray) {
+
+	for (var i = 0; i < originalArray.length; i++) {
+		originalArray[i] = String(originalArray[i]);
+	}
+
+	var orderMap = {};
+	for (var i = 0; i < orderArray.length; i++) {
+		orderMap[orderArray[i]] = i;
+	}
+
+	originalArray.sort(function(a, b) {
+		var indexA = orderMap[a];
+		var indexB = orderMap[b];
+		
+		// Check if both items are found in orderArray
+		if (indexA !== undefined && indexB !== undefined) {
+			// Compare the indices in orderArray
+			return indexA - indexB;
+		} else if (indexA !== undefined) {
+			// Place item a before item b if only a is found in orderArray
+			return -1;
+		} else if (indexB !== undefined) {
+			// Place item b before item a if only b is found in orderArray
+			return 1;
+		} else {
+			// Maintain the original order if neither item is found in orderArray
+			return 0;
+		}
+	});
+
+	return originalArray;
+}
+
 
 // M A I N
 
 try {
 	// Extract keywords
-	var doc_keywords = app.activeDocument.info.keywords;
+	var raw_keywords = app.activeDocument.info.keywords;
+	var doc_keywords = reorderArray(raw_keywords, keyword_order);
+	
 	// Loop through all keywords in file
 	for(var a in doc_keywords){
 		// Loop through all keywords in action_library and look for match
