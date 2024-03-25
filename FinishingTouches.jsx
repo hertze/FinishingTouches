@@ -318,7 +318,7 @@ try {
 
     // Loop through all keywords in doc_keywords
     for(var a = 0; a < doc_keywords.length; a++){
-        // Create a temporary array to hold the subset of objects from action_library that contains the current keyword
+        // Create a temporary array to hold the subset of objects from action_library that contains the current keyword and are of the correct aspect ratio
 		var temp_array = [];
 		for(var i = 0; i < action_library.length; i++) {
 			if(action_library[i].keyword[0] == doc_keywords[a] && action_library[i].aspect_ratio == format()) {
@@ -331,7 +331,7 @@ try {
             return b.keyword.length - a.keyword.length;
         });
 
-        // Execute the first object in temp_array where all variables in "keywords" are present in doc_keywords
+        // Execute the first object in temp_array where all keywords are present in doc_keywords
 		for(var i = 0; i < temp_array.length; i++) {
 			if (containsAll(temp_array[i].keyword, doc_keywords)) {
 				// Resize if needed
