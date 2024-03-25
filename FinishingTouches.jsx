@@ -48,7 +48,7 @@ const action_library = [
 		"keyword": ["halation", "color"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"actions": [["Halation, 35mm", "Halation.atn"]]
+		"actions": [["Halation, 35mm","Halation global.atn"]]
 	},
 	
 	{
@@ -90,21 +90,21 @@ const action_library = [
 		"keyword": ["halation", "color"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"]]
+		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 	
 	{
 		"keyword": ["color"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120","Halation global.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keyword": ["color", "highiso"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120","Halation global.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
@@ -132,14 +132,14 @@ const action_library = [
 		"keyword": ["color"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120","Halation global.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keyword": ["color", "highiso"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120","Halation global.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
@@ -329,34 +329,21 @@ try {
     
     // Loop through all keywords in doc_keywords
     for(var a in doc_keywords){
-        // Count the number of action_library entries that contain the current keyword
-        var count = 0;
-        for(var b in action_library){
-            if (contains(action_library[b].keyword, doc_keywords[a])) {
-                count++;
-            }
-        }
-
         // Loop through all keywords in action_library
         for(var b in action_library){
-            // Check if the keyword is in action_library[b].keyword
-            if (contains(action_library[b].keyword, doc_keywords[a])) {
-                // Check if all keywords in action_library[b].keyword are in doc_keywords, or if this is the only entry that contains the keyword
-                var all_keywords_present = containsAll(action_library[b].keyword, doc_keywords) || count == 1;
-
-                if (all_keywords_present && action_library[b].aspect_ratio == format()) {
-                    // Resize if needed
-                    if (action_library[b].target_size) {
-                        resizeThisImage(action_library[b].target_size);
-                    }
-                    // Execute actions
-                    for(var c in action_library[b].actions) {
-                        alert(action_library[b].actions[c][0] + ", " + action_library[b].actions[c][1]);
-                        app.doAction(action_library[b].actions[c][0], action_library[b].actions[c][1]);
-                    }
-                    // Break the inner loop to avoid executing the same actions multiple times
-                    break;
+            // Check if the first keyword in action_library[b].keyword is the current keyword in doc_keywords
+            if (action_library[b].keyword[0] == doc_keywords[a] && action_library[b].aspect_ratio == format()) {
+                // Resize if needed
+                if (action_library[b].target_size) {
+                    resizeThisImage(action_library[b].target_size);
                 }
+                // Execute actions
+                for(var c in action_library[b].actions) {
+                    alert(action_library[b].actions[c][0] + ", " + action_library[b].actions[c][1]);
+                    app.doAction(action_library[b].actions[c][0], action_library[b].actions[c][1]);
+                }
+                // Break the inner loop to avoid executing the same actions multiple times
+                break;
             }
         }
     }
