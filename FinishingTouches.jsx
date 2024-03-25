@@ -52,13 +52,6 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["poserframes"],
-		"aspect_ratio": "2x3",
-		"target_size": 3600,
-		"actions": [["Matted crop", "Poserframes 2x3"]]
-	},
-	
-	{
 		"keyword": ["color"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
@@ -108,7 +101,7 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["halation"],
+		"keyword": ["halation", "color"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"]]
@@ -143,7 +136,7 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["halation"],
+		"keyword": ["halation", "color"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"]]
