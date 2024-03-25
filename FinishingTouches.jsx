@@ -48,7 +48,7 @@ const action_library = [
 		"keyword": ["halation", "color"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
-		"actions": [["Halation, 35mm", "Halation.atn"]]
+		"actions": [["Halation, 35mm", "Halation global.atn"]]
 	},
 	
 	{
@@ -90,21 +90,21 @@ const action_library = [
 		"keyword": ["halation", "color"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"]]
+		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 	
 	{
 		"keyword": ["color"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keyword": ["color", "highiso"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
@@ -132,14 +132,14 @@ const action_library = [
 		"keyword": ["color"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keyword": ["color", "highiso"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
@@ -299,21 +299,17 @@ function reorderArray(originalArray, orderArray) {
 
 	return originalArray;
 }
-
-// Function to check if an array contains a certain element
-function contains(arr, elem) {
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i] === elem) {
-            return true;
-        }
-    }
-    return false;
-}
-
-// Function to check if all elements in arr1 are in arr2
+// Helper function to check if all elements of arr1 are in arr2
 function containsAll(arr1, arr2) {
-    for (var i = 0; i < arr1.length; i++) {
-        if (!contains(arr2, arr1[i])) {
+    for(var i = 0; i < arr1.length; i++) {
+        var found = false;
+        for(var j = 0; j < arr2.length; j++) {
+            if(arr1[i] === arr2[j]) {
+                found = true;
+                break;
+            }
+        }
+        if(!found) {
             return false;
         }
     }
@@ -326,39 +322,37 @@ try {
     // Extract keywords
     var raw_keywords = app.activeDocument.info.keywords;
     var doc_keywords = reorderArray(raw_keywords, keyword_order);
-    
+
     // Loop through all keywords in doc_keywords
-    for(var a in doc_keywords){
-        // Count the number of action_library entries that contain the current keyword
-        var count = 0;
-        for(var b in action_library){
-            if (contains(action_library[b].keyword, doc_keywords[a])) {
-                count++;
-            }
-        }
+    for(var a = 0; a < doc_keywords.length; a++){
+        // Create a temporary array to hold the subset of objects from action_library that contains the current keyword
+		var temp_array = [];
+		for(var i = 0; i < action_library.length; i++) {
+			if(action_library[i].keyword[0] == doc_keywords[a] && action_library[i].aspect_ratio == format()) {
+				temp_array.push(action_library[i]);
+			}
+		}
 
-        // Loop through all keywords in action_library
-        for(var b in action_library){
-            // Check if the keyword is in action_library[b].keyword
-            if (contains(action_library[b].keyword, doc_keywords[a])) {
-                // Check if all keywords in action_library[b].keyword are in doc_keywords, or if this is the only entry that contains the keyword
-                var all_keywords_present = containsAll(action_library[b].keyword, doc_keywords) || count == 1;
+        // Reorder the temporary array so that objects with more keywords come first
+        temp_array.sort(function(a, b) {
+            return b.keyword.length - a.keyword.length;
+        });
 
-                if (all_keywords_present && action_library[b].aspect_ratio == format()) {
-                    // Resize if needed
-                    if (action_library[b].target_size) {
-                        resizeThisImage(action_library[b].target_size);
-                    }
-                    // Execute actions
-                    for(var c in action_library[b].actions) {
-                        alert(action_library[b].actions[c][0] + ", " + action_library[b].actions[c][1]);
-                        app.doAction(action_library[b].actions[c][0], action_library[b].actions[c][1]);
-                    }
-                    // Break the inner loop to avoid executing the same actions multiple times
-                    break;
-                }
-            }
-        }
+        // Execute the first object in temp_array where all variables in "keywords" are present in doc_keywords
+		for(var i = 0; i < temp_array.length; i++) {
+			if (containsAll(temp_array[i].keyword, doc_keywords)) {
+				// Resize if needed
+				if (temp_array[i].target_size) {
+					resizeThisImage(temp_array[i].target_size);
+				}
+				// Execute actions
+				for(var c = 0; c < temp_array[i].actions.length; c++) {
+					//alert(temp_array[i].actions[c][0] + ", " + temp_array[i].actions[c][1]);
+					app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
+				}
+				break;
+			}
+		}
     }
     //saveClose();
 } catch(e) { alert(e); }
