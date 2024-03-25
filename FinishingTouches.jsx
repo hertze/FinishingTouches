@@ -24,7 +24,7 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["color highiso"],
+		"keyword": ["color", "highiso"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
@@ -38,7 +38,7 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["bw highiso"],
+		"keyword": ["bw", "highiso"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
@@ -329,12 +329,20 @@ try {
     
     // Loop through all keywords in doc_keywords
     for(var a in doc_keywords){
+        // Count the number of action_library entries that contain the current keyword
+        var count = 0;
+        for(var b in action_library){
+            if (contains(action_library[b].keyword, doc_keywords[a])) {
+                count++;
+            }
+        }
+
         // Loop through all keywords in action_library
         for(var b in action_library){
             // Check if the keyword is in action_library[b].keyword
             if (contains(action_library[b].keyword, doc_keywords[a])) {
-                // Check if all keywords in action_library[b].keyword are in doc_keywords
-                var all_keywords_present = containsAll(action_library[b].keyword, doc_keywords);
+                // Check if all keywords in action_library[b].keyword are in doc_keywords, or if this is the only entry that contains the keyword
+                var all_keywords_present = containsAll(action_library[b].keyword, doc_keywords) || count == 1;
 
                 if (all_keywords_present && action_library[b].aspect_ratio == format()) {
                     // Resize if needed
