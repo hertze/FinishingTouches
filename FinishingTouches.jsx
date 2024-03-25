@@ -66,7 +66,7 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["color highiso"],
+		"keyword": ["color", "highiso"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
@@ -80,7 +80,7 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["bw highiso"],
+		"keyword": ["bw", "highiso"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
@@ -101,7 +101,7 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["color highiso"],
+		"keyword": ["color", "highiso"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
@@ -122,7 +122,7 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["bw highiso"],
+		"keyword": ["bw", "highiso"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
@@ -136,14 +136,14 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["color highiso"],
+		"keyword": ["color", "highiso"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": ["halatioin"],
+		"keyword": ["halation"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"]]
@@ -157,7 +157,7 @@ const action_library = [
 	},
 	
 	{
-		"keyword": ["bw highiso"],
+		"keyword": ["bw", "highiso"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
