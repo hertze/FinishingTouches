@@ -64,6 +64,12 @@ const action_library = [
 		"target_size": 6000,
 		"actions": [["645 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
+
+	{
+		"keyword": ["poserframes"],
+		"aspect_ratio": "4x3",
+		"actions": [["Fancy, Contax, style 5", "Poserframes 4x3.atn"]]
+	},
 	
 	{
 		"keyword": ["bw"],
@@ -292,6 +298,7 @@ function reorderArray(originalArray, orderArray) {
 
 	return originalArray;
 }
+
 // Helper function to check if all elements of arr1 are in arr2
 function containsAll(arr1, arr2) {
     for(var i = 0; i < arr1.length; i++) {
@@ -318,7 +325,7 @@ try {
 
     // Loop through all keywords in doc_keywords
     for(var a = 0; a < doc_keywords.length; a++){
-        // Create a temporary array to hold the subset of objects from action_library that contains the current keyword and are of the correct aspect ratio
+        // Create a temporary array to hold the subset of objects from action_library, where the first keyword equals the current doc keyword and are of the correct aspect ratio
 		var temp_array = [];
 		for(var i = 0; i < action_library.length; i++) {
 			if(action_library[i].keyword[0] == doc_keywords[a] && action_library[i].aspect_ratio == format()) {
@@ -326,12 +333,12 @@ try {
 			}
 		}
 
-        // Reorder the temporary array so that objects with more keywords come first
+        // Reorder the temporary array so that objects with the most keywords come first
         temp_array.sort(function(a, b) {
             return b.keyword.length - a.keyword.length;
         });
 
-        // Execute the first object in temp_array where all keywords are present in doc_keywords
+        // Execute the first object in temp_array where all keywords are present in doc_keywords, meaning only the library object with a first keyword equal of the current doc keyword and that has the most keywords will be executed.
 		for(var i = 0; i < temp_array.length; i++) {
 			if (containsAll(temp_array[i].keyword, doc_keywords)) {
 				// Resize if needed
@@ -340,12 +347,11 @@ try {
 				}
 				// Execute actions
 				for(var c = 0; c < temp_array[i].actions.length; c++) {
-					//alert(temp_array[i].actions[c][0] + ", " + temp_array[i].actions[c][1]);
 					app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
 				}
 				break;
 			}
 		}
     }
-    //saveClose();
+    saveClose();
 } catch(e) { alert(e); }
