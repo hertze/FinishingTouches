@@ -17,147 +17,147 @@
 const action_library = [
 	
 	{
-		"keyword": "color",
+		"keyword": ["color"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
-		"keyword": "color highiso",
+		"keyword": ["color highiso"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
-		"keyword": "bw",
+		"keyword": ["bw"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "bw highiso",
+		"keyword": ["bw highiso"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "halation",
+		"keyword": ["halation", "color"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["Halation, 35mm", "Halation global.atn"]]
 	},
 	
 	{
-		"keyword": "poserframes",
+		"keyword": ["poserframes"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["Matted crop", "Poserframes 2x3"]]
 	},
 	
 	{
-		"keyword": "color",
+		"keyword": ["color"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "color highiso",
+		"keyword": ["color highiso"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["645 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["645 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "bw",
+		"keyword": ["bw"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "bw highiso",
+		"keyword": ["bw highiso"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "halation",
+		"keyword": ["halation", "color"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 	
 	{
-		"keyword": "color",
+		"keyword": ["color"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "color highiso",
+		"keyword": ["color highiso"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "halation",
+		"keyword": ["halation"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"]]
+		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 	
 	{
-		"keyword": "bw",
+		"keyword": ["bw"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "bw highiso",
+		"keyword": ["bw highiso"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "color",
+		"keyword": ["color"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "color highiso",
+		"keyword": ["color highiso"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": "halatioin",
+		"keyword": ["halatioin"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"]]
+		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 	
 	{
-		"keyword": "bw",
+		"keyword": ["bw"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": "bw highiso",
+		"keyword": ["bw highiso"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
@@ -300,29 +300,57 @@ function reorderArray(originalArray, orderArray) {
 	return originalArray;
 }
 
+// Function to check if an array contains a certain element
+function contains(arr, elem) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === elem) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Function to check if all elements in arr1 are in arr2
+function containsAll(arr1, arr2) {
+    for (var i = 0; i < arr1.length; i++) {
+        if (!contains(arr2, arr1[i])) {
+            return false;
+        }
+    }
+    return true;
+}
 
 // M A I N
 
 try {
-	// Extract keywords
-	var raw_keywords = app.activeDocument.info.keywords;
-	var doc_keywords = reorderArray(raw_keywords, keyword_order);
-	
-	// Loop through all keywords in file
-	for(var a in doc_keywords){
-		// Loop through all keywords in action_library and look for match
-		for(var b in action_library){
-			if (action_library[b].keyword == doc_keywords[a].toString() && action_library[b].aspect_ratio == format()) {
-				// Resize if needed
-				if (action_library[b].target_size) {
-					resizeThisImage(action_library[b].target_size);
-				}
-				// Execute actions
-				for(var c in action_library[b].actions) {
-					app.doAction(action_library[b].actions[c][0], action_library[b].actions[c][1]);
-				}
-			}
-		}
-	}
-	saveClose();
+    // Extract keywords
+    var raw_keywords = app.activeDocument.info.keywords;
+    var doc_keywords = reorderArray(raw_keywords, keyword_order);
+    
+    // Loop through all keywords in doc_keywords
+    for(var a in doc_keywords){
+        // Loop through all keywords in action_library
+        for(var b in action_library){
+            // Check if the keyword is in action_library[b].keyword
+            if (contains(action_library[b].keyword, doc_keywords[a])) {
+                // Check if all keywords in action_library[b].keyword are in doc_keywords
+                var all_keywords_present = containsAll(action_library[b].keyword, doc_keywords);
+
+                if (all_keywords_present && action_library[b].aspect_ratio == format()) {
+                    // Resize if needed
+                    if (action_library[b].target_size) {
+                        resizeThisImage(action_library[b].target_size);
+                    }
+                    // Execute actions
+                    for(var c in action_library[b].actions) {
+                        alert(action_library[b].actions[c][0] + ", " + action_library[b].actions[c][1]);
+                        app.doAction(action_library[b].actions[c][0], action_library[b].actions[c][1]);
+                    }
+                    // Break the inner loop to avoid executing the same actions multiple times
+                    break;
+                }
+            }
+        }
+    }
+    //saveClose();
 } catch(e) { alert(e); }
