@@ -340,22 +340,25 @@ function containsAll(arr1, arr2) {
 
 // M A I N
 
+// M A I N
+
 try {
     // Extract keywords
     var raw_keywords = app.activeDocument.info.keywords;
     var doc_keywords = reorderArray(raw_keywords, keyword_order);
 
+    // Calculate format once at the start of the script
+    var doc_format = format();
+
     // Loop through all keywords in doc_keywords
     for(var a = 0; a < doc_keywords.length; a++){
         // Create a temporary array to hold the subset of objects from action_library, where the first keyword equals the current doc keyword and are of the correct aspect ratio
-		var temp_array = [];
-		for(var i = 0; i < action_library.length; i++) {
-			if(action_library[i].keyword[0] == doc_keywords[a] && action_library[i].aspect_ratio == format()) {
-				temp_array.push(action_library[i]);
-			}
-		}
-
-		alert(doc_keywords[a] + ", " + temp_array);
+        var temp_array = [];
+        for(var i = 0; i < action_library.length; i++) {
+            if(action_library[i].keyword[0] == doc_keywords[a] && action_library[i].aspect_ratio == doc_format) {
+                temp_array.push(action_library[i]);
+            }
+        }
 
         // Reorder the temporary array so that objects with the most keywords come first
         temp_array.sort(function(a, b) {
@@ -363,21 +366,20 @@ try {
         });
 
         // Loop over temp_array
-		for(var i = 0; i < temp_array.length; i++) {
-			// Check if all keywords in temp_array[i] are present in doc_keywords
-			if (containsAll(temp_array[i].keyword, doc_keywords)) {
-				// Resize if needed
-				if (temp_array[i].target_size) {
-					resizeThisImage(temp_array[i].target_size);
-				}
-				// Execute actions
-				for(var c = 0; c < temp_array[i].actions.length; c++) {
-					alert("Applying " + temp_array[i].actions[c][0] + " from " + temp_array[i].actions[c][1]);
-					app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
-				}
-				// Removed the break statement
-			}
-		}
+        for(var i = 0; i < temp_array.length; i++) {
+            // Check if all keywords in temp_array[i] are present in doc_keywords
+            if (containsAll(temp_array[i].keyword, doc_keywords)) {
+                // Resize if needed
+                if (temp_array[i].target_size) {
+                    resizeThisImage(temp_array[i].target_size);
+                }
+                // Execute actions
+                for(var c = 0; c < temp_array[i].actions.length; c++) {
+                    alert("Applying " + temp_array[i].actions[c][0] + " from " + temp_array[i].actions[c][1]);
+                    app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
+                }
+            }
+        }
     }
     //saveClose();
 } catch(e) { alert(e); }
