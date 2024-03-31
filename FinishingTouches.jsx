@@ -355,13 +355,16 @@ try {
 			}
 		}
 
+		alert(doc_keywords[a] + ", " + temp_array);
+
         // Reorder the temporary array so that objects with the most keywords come first
         temp_array.sort(function(a, b) {
             return b.keyword.length - a.keyword.length;
         });
 
-        // Execute the first object in temp_array where all keywords are present in doc_keywords, meaning only the library object with a first keyword equal of the current doc keyword and that has the most keywords will be executed.
+        // Loop over temp_array
 		for(var i = 0; i < temp_array.length; i++) {
+			// Check if all keywords in temp_array[i] are present in doc_keywords
 			if (containsAll(temp_array[i].keyword, doc_keywords)) {
 				// Resize if needed
 				if (temp_array[i].target_size) {
@@ -372,7 +375,7 @@ try {
 					alert("Applying " + temp_array[i].actions[c][0] + " from " + temp_array[i].actions[c][1]);
 					app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
 				}
-				break;
+				// Removed the break statement
 			}
 		}
     }
