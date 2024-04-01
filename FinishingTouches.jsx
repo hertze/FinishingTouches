@@ -1,6 +1,6 @@
 // F I N I S H I N G  T O U C H E S
 //
-// Version 2.0
+// Version 2.1
 //
 // by Joakim Hertze (www.hertze.se)
 //
@@ -24,7 +24,7 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["color", "highiso"],
+		"keywords": ["color", "isohigh"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
@@ -38,7 +38,7 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["bw", "highiso"],
+		"keywords": ["bw", "isohigh"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
@@ -70,7 +70,7 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["color", "highiso"],
+		"keywords": ["color", "isohigh"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
@@ -90,7 +90,7 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["bw", "highiso"],
+		"keywords": ["bw", "isohigh"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
@@ -116,7 +116,7 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["color", "highiso"],
+		"keywords": ["color", "isohigh"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
@@ -136,7 +136,7 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["bw", "highiso"],
+		"keywords": ["bw", "isohigh"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
@@ -150,7 +150,7 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["color", "highiso"],
+		"keywords": ["color", "isohigh"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
@@ -170,7 +170,7 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["bw", "highiso"],
+		"keywords": ["bw", "isohigh"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
