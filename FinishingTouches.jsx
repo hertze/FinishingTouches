@@ -47,21 +47,18 @@ const action_library = [
 	{
 		"keyword": ["poserframes"],
 		"aspect_ratio": "2x3",
-		"target_size": 3600,
 		"actions": [["Matted crop, variable", "Poserframes 2x3.atn"]]
 	},
 
 	{
 		"keyword": ["halation", "color"],
 		"aspect_ratio": "2x3",
-		"target_size": 3600,
 		"actions": [["Halation, 35mm", "Halation global.atn"]]
 	},
 
 	{
 		"keyword": ["halation", "bw"],
 		"aspect_ratio": "2x3",
-		"target_size": 3600,
 		"actions": [["Halation, 35mm, subtle", "Halation mono.atn"]]
 	},
 	
@@ -82,8 +79,7 @@ const action_library = [
 	{
 		"keyword": ["poserframes"],
 		"aspect_ratio": "4x3",
-		"target_size": 6000,
-		"actions": [["Matted crop, Contax", "Poserframes 4x3.atn"]]
+		"actions": [["Matted crop, Contax, thick", "Poserframes 4x3.atn"]]
 	},
 	
 	{
@@ -103,14 +99,12 @@ const action_library = [
 	{
 		"keyword": ["halation", "color"],
 		"aspect_ratio": "4x3",
-		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 
 	{
 		"keyword": ["halation", "bw"],
 		"aspect_ratio": "4x3",
-		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation mono.atn"]]
 	},
 	
@@ -131,7 +125,6 @@ const action_library = [
 	{
 		"keyword": ["halation", "color"],
 		"aspect_ratio": "6x7",
-		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 	
@@ -166,7 +159,6 @@ const action_library = [
 	{
 		"keyword": ["halation", "color"],
 		"aspect_ratio": "1x1",
-		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 	
@@ -375,11 +367,10 @@ try {
                 }
                 // Execute actions
                 for(var c = 0; c < temp_array[i].actions.length; c++) {
-                    alert("Applying " + temp_array[i].actions[c][0] + " from " + temp_array[i].actions[c][1]);
                     app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
                 }
             }
         }
     }
-    //saveClose();
+    saveClose();
 } catch(e) { alert(e); }
