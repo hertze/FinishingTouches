@@ -17,160 +17,160 @@
 const action_library = [
 	
 	{
-		"keyword": ["color"],
+		"keywords": ["color"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 400 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
-		"keyword": ["color", "highiso"],
+		"keywords": ["color", "highiso"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
 	},
 	
 	{
-		"keyword": ["bw"],
+		"keywords": ["bw"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": ["bw", "highiso"],
+		"keywords": ["bw", "highiso"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": ["poserframes"],
+		"keywords": ["poserframes"],
 		"aspect_ratio": "2x3",
 		"actions": [["Matted crop, variable", "Poserframes 2x3.atn"]]
 	},
 
 	{
-		"keyword": ["halation", "color"],
+		"keywords": ["halation", "color"],
 		"aspect_ratio": "2x3",
 		"actions": [["Halation, 35mm", "Halation global.atn"]]
 	},
 
 	{
-		"keyword": ["halation", "bw"],
+		"keywords": ["halation", "bw"],
 		"aspect_ratio": "2x3",
 		"actions": [["Halation, 35mm, subtle", "Halation mono.atn"]]
 	},
 	
 	{
-		"keyword": ["color"],
+		"keywords": ["color"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": ["color", "highiso"],
+		"keywords": ["color", "highiso"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 
 	{
-		"keyword": ["poserframes"],
+		"keywords": ["poserframes"],
 		"aspect_ratio": "4x3",
 		"actions": [["Matted crop, Contax, thick", "Poserframes 4x3.atn"]]
 	},
 	
 	{
-		"keyword": ["bw"],
+		"keywords": ["bw"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": ["bw", "highiso"],
+		"keywords": ["bw", "highiso"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": ["halation", "color"],
+		"keywords": ["halation", "color"],
 		"aspect_ratio": "4x3",
 		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 
 	{
-		"keyword": ["halation", "bw"],
+		"keywords": ["halation", "bw"],
 		"aspect_ratio": "4x3",
 		"actions": [["Halation, 120", "Halation mono.atn"]]
 	},
 	
 	{
-		"keyword": ["color"],
+		"keywords": ["color"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": ["color", "highiso"],
+		"keywords": ["color", "highiso"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": ["halation", "color"],
+		"keywords": ["halation", "color"],
 		"aspect_ratio": "6x7",
 		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 	
 	{
-		"keyword": ["bw"],
+		"keywords": ["bw"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": ["bw", "highiso"],
+		"keywords": ["bw", "highiso"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": ["color"],
+		"keywords": ["color"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": ["color", "highiso"],
+		"keywords": ["color", "highiso"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
-		"keyword": ["halation", "color"],
+		"keywords": ["halation", "color"],
 		"aspect_ratio": "1x1",
 		"actions": [["Halation, 120", "Halation global.atn"]]
 	},
 	
 	{
-		"keyword": ["bw"],
+		"keywords": ["bw"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
-		"keyword": ["bw", "highiso"],
+		"keywords": ["bw", "highiso"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
@@ -347,20 +347,20 @@ try {
         // Create a temporary array to hold the subset of objects from action_library, where the first keyword equals the current doc keyword and are of the correct aspect ratio
         var temp_array = [];
         for(var i = 0; i < action_library.length; i++) {
-            if(action_library[i].keyword[0] == doc_keywords[a] && action_library[i].aspect_ratio == doc_format) {
+            if(action_library[i].keywords[0] == doc_keywords[a] && action_library[i].aspect_ratio == doc_format) {
                 temp_array.push(action_library[i]);
             }
         }
 
         // Reorder the temporary array so that objects with the most keywords come first
         temp_array.sort(function(a, b) {
-            return b.keyword.length - a.keyword.length;
+            return b.keywords.length - a.keywords.length;
         });
 
         // Loop over temp_array
         for(var i = 0; i < temp_array.length; i++) {
             // Check if all keywords in temp_array[i] are present in doc_keywords
-            if (containsAll(temp_array[i].keyword, doc_keywords)) {
+            if (containsAll(temp_array[i].keywords, doc_keywords)) {
                 // Resize if needed
                 if (temp_array[i].target_size) {
                     resizeThisImage(temp_array[i].target_size);
