@@ -24,7 +24,7 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["color", "isohigh"],
+		"keywords": ["color", "iso1600"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 1600 (3600 Color)", "The Film Grain 3600 Color.atn"]]
@@ -38,7 +38,14 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["bw", "isohigh"],
+		"keywords": ["bw", "iso100"],
+		"aspect_ratio": "2x3",
+		"target_size": 3600,
+		"actions": [["35mm ISO 100 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
+	},
+
+	{
+		"keywords": ["bw", "iso3200"],
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
@@ -76,7 +83,7 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["color", "isohigh"],
+		"keywords": ["color", "iso1600"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
@@ -96,7 +103,14 @@ const action_library = [
 	},
 	
 	{
-		"keywords": ["bw", "isohigh"],
+		"keywords": ["bw", "iso100"],
+		"aspect_ratio": "4x3",
+		"target_size": 6000,
+		"actions": [["645 ISO 100  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
+	},
+
+	{
+		"keywords": ["bw", "iso3200"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
