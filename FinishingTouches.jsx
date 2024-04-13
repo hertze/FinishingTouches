@@ -57,9 +57,15 @@ const action_library = [
 	},
 
 	{
+		"keywords": ["halation", "color", "strong"],
+		"aspect_ratio": "2x3",
+		"actions": [["Halation, 35mm, strong", "Halation global.atn"]]
+	},
+
+	{
 		"keywords": ["halation", "bw"],
 		"aspect_ratio": "2x3",
-		"actions": [["Halation, 35mm, subtle", "Halation mono.atn"]]
+		"actions": [["Halation, 35mm", "Halation mono.atn"]]
 	},
 	
 	{
