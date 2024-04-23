@@ -60,13 +60,13 @@ const action_library = [
 	{
 		"keywords": ["halation", "color"],
 		"aspect_ratio": "2x3",
-		"actions": [["Halation, 35mm", "Halation global.atn"]]
+		"actions": [["Halation, 35mm", "Halation.atn"]]
 	},
 
 	{
 		"keywords": ["halation", "color", "strong"],
 		"aspect_ratio": "2x3",
-		"actions": [["Halation, 35mm, strong", "Halation global.atn"]]
+		"actions": [["Halation, 35mm, strong", "Halation.atn"]]
 	},
 
 	{
@@ -106,20 +106,20 @@ const action_library = [
 		"keywords": ["bw", "iso100"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
-		"actions": [["645 ISO 100  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
+		"actions": [["645 ISO 100 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 
 	{
 		"keywords": ["bw", "iso3200"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
-		"actions": [["645 ISO 3200  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
+		"actions": [["645 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
 		"keywords": ["halation", "color"],
 		"aspect_ratio": "4x3",
-		"actions": [["Halation, 120", "Halation global.atn"]]
+		"actions": [["Halation, 120", "Halation.atn"]]
 	},
 
 	{
@@ -132,20 +132,20 @@ const action_library = [
 		"keywords": ["color"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keywords": ["color", "isohigh"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keywords": ["halation", "color"],
 		"aspect_ratio": "6x7",
-		"actions": [["Halation, 120", "Halation global.atn"]]
+		"actions": [["Halation, 120", "Halation.atn"]]
 	},
 	
 	{
@@ -166,20 +166,20 @@ const action_library = [
 		"keywords": ["color"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keywords": ["color", "isohigh"],
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation global.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
 		"keywords": ["halation", "color"],
 		"aspect_ratio": "1x1",
-		"actions": [["Halation, 120", "Halation global.atn"]]
+		"actions": [["Halation, 120", "Halation.atn"]]
 	},
 	
 	{
@@ -387,8 +387,11 @@ try {
                 }
                 // Execute actions
                 for(var c = 0; c < temp_array[i].actions.length; c++) {
+                    //alert(temp_array[i].actions[c][0]);
                     app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
                 }
+                // Break the loop after executing the first matching action
+                break;
             }
         }
     }
