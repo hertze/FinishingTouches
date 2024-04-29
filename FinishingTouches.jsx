@@ -202,6 +202,7 @@ const action_library = [
 // Script behaviour ----------------------------------------------------
 
 var tiff_to_jpg = true;
+var sRGB = true;
 var keyword_order = ["halation", "poserframes", "color"];
 
 // ---------------------------------------------------------------------
@@ -223,8 +224,10 @@ function saveClose() {
 	var fPath = app.activeDocument.path;
 	if (file_ending == "tif" || file_ending == "tiff") {
 		if (tiff_to_jpg = true) {
-			// Convert color profile to sRGB
-			app.activeDocument.convertProfile("sRGB IEC61966-2.1", Intent.PERCEPTUAL, true, true);
+			if (sRGB) {
+				// Convert color profile to sRGB
+				app.activeDocument.convertProfile("sRGB IEC61966-2.1", Intent.PERCEPTUAL, true, true);
+			}
 
 			// Save as jpg in folder
 			var fName = app.activeDocument.name.split('.');
