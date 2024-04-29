@@ -223,10 +223,13 @@ function saveClose() {
 	var fPath = app.activeDocument.path;
 	if (file_ending == "tif" || file_ending == "tiff") {
 		if (tiff_to_jpg = true) {
+			// Convert color profile to sRGB
+			app.activeDocument.convertProfile("sRGB IEC61966-2.1", Intent.PERCEPTUAL, true, true);
+
 			// Save as jpg in folder
 			var fName = app.activeDocument.name.split('.');
 			var jpgPath = fPath + "\/jpgs\/" + fName[0] + ".jpg";
-			
+
 			var jpgFolder = Folder(fPath + "/jpgs");
 			//Check if it exist, if not create it.
 			if(!jpgFolder.exists) jpgFolder.create();
