@@ -11,7 +11,7 @@
 
 // LIBRARY -------------------------------------------------------------
 //
-// Change or add all the library objects you like!
+// Change or add all the capsules you like!
 //
 
 const capsules = [
@@ -35,13 +35,6 @@ const capsules = [
 		"aspect_ratio": "2x3",
 		"target_size": 3600,
 		"actions": [["35mm ISO 400 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
-	},
-	
-	{
-		"keywords": ["bw", "iso100"],
-		"aspect_ratio": "2x3",
-		"target_size": 3600,
-		"actions": [["35mm ISO 100 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	},
 
 	{
@@ -81,13 +74,6 @@ const capsules = [
 		"target_size": 6000,
 		"actions": [["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
-
-	{
-		"keywords": ["color", "iso100"],
-		"aspect_ratio": "4x3",
-		"target_size": 6000,
-		"actions": [["645 ISO 100 (6000 Color)", "The Film Grain 6000 Color.atn"]]
-	},
 	
 	{
 		"keywords": ["color", "iso1600"],
@@ -107,13 +93,6 @@ const capsules = [
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
 		"actions": [["645 ISO 400  (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
-	},
-	
-	{
-		"keywords": ["bw", "iso100"],
-		"aspect_ratio": "4x3",
-		"target_size": 6000,
-		"actions": [["645 ISO 100 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 
 	{
@@ -149,30 +128,10 @@ const capsules = [
 	},
 	
 	{
-		"keywords": ["color", "isohigh"],
-		"aspect_ratio": "6x7",
-		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
-	},
-	
-	{
-		"keywords": ["halation", "color"],
-		"aspect_ratio": "6x7",
-		"actions": [["Halation, 120", "Halation.atn"]]
-	},
-	
-	{
 		"keywords": ["bw"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
-	},
-	
-	{
-		"keywords": ["bw", "isohigh"],
-		"aspect_ratio": "6x7",
-		"target_size": 6000,
-		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	},
 	
 	{
@@ -183,13 +142,6 @@ const capsules = [
 	},
 	
 	{
-		"keywords": ["color", "isohigh"],
-		"aspect_ratio": "1x1",
-		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 1600 (6000 Color)", "The Film Grain 6000 Color.atn"]]
-	},
-	
-	{
 		"keywords": ["halation", "color"],
 		"aspect_ratio": "1x1",
 		"actions": [["Halation, 120", "Halation.atn"]]
@@ -200,13 +152,6 @@ const capsules = [
 		"aspect_ratio": "1x1",
 		"target_size": 6000,
 		"actions": [["6x6/6x7 ISO 400 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
-	},
-	
-	{
-		"keywords": ["bw", "isohigh"],
-		"aspect_ratio": "1x1",
-		"target_size": 6000,
-		"actions": [["6x6/6x7 ISO 3200 (6000 Monochrome)", "The Film Grain 6000 Monochrome.atn"]]
 	}
 	
 ];
@@ -375,6 +320,7 @@ function containsAll(arr1, arr2) {
 try {
     // Extract keywords
     var raw_keywords = app.activeDocument.info.keywords;
+	// Sort keywords according to keyword_order
     var doc_keywords = reorderArray(raw_keywords, keyword_order);
 
     // Calculate format once at the start of the script
@@ -386,8 +332,9 @@ try {
       	// Create a temporary array to hold the subset of objects from capsules, where the first keyword equals the current doc keyword and are of the correct aspect ratio
 		var temp_array = [];
 		for(var i = 0; i < capsules.length; i++) {
+			// Check if the first keyword in capsules[i] equals the current doc keyword and if the aspect ratio matches
 			if(capsules[i].keywords[0] == doc_keywords[a] && capsules[i].aspect_ratio == doc_format) {
-				// Check if all keywords in capsules[i] are present in doc_keywords
+				// Then check if all keywords in capsules[i] are present in doc_keywords
 				var allKeywordsPresent = true;
 				for(var j = 0; j < capsules[i].keywords.length; j++) {
 					var keywordFound = false;
@@ -415,11 +362,6 @@ try {
             return b.keywords.length - a.keywords.length;
         });
 
-		// Loop over temp_array for alerting the keywords of each item
-		//for(var i = 0; i < temp_array.length; i++) {
-			//alert("Keywords for item " + (i+1) + ": " + temp_array[i].keywords.join(", "));
-		//}
-
         // Loop over temp_array
         for(var i = 0; i < temp_array.length; i++) {
             // Check if all keywords in temp_array[i] are present in doc_keywords
@@ -430,7 +372,6 @@ try {
                 }
                 // Execute actions
                 for(var c = 0; c < temp_array[i].actions.length; c++) {
-                    //alert(temp_array[i].actions[c][0] + ", " + temp_array[i].actions[c][1]);
                     app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
                 }
                 // Break the loop after executing the first matching action
