@@ -370,18 +370,40 @@ try {
 
     // Loop through all keywords in doc_keywords
     for(var a = 0; a < doc_keywords.length; a++){
-        // Create a temporary array to hold the subset of objects from action_library, where the first keyword equals the current doc keyword and are of the correct aspect ratio
-        var temp_array = [];
-        for(var i = 0; i < action_library.length; i++) {
-            if(action_library[i].keywords[0] == doc_keywords[a] && action_library[i].aspect_ratio == doc_format) {
-                temp_array.push(action_library[i]);
-            }
-        }
+
+      	// Create a temporary array to hold the subset of objects from action_library, where all keywords are present in doc_keywords and are of the correct aspect ratio
+		var temp_array = [];
+		for(var i = 0; i < action_library.length; i++) {
+			var allKeywordsPresent = true;
+			for(var j = 0; j < action_library[i].keywords.length; j++) {
+				var keywordFound = false;
+				for(var k = 0; k < doc_keywords.length; k++) {
+					if(doc_keywords[k] === action_library[i].keywords[j]) {
+						keywordFound = true;
+						break;
+					}
+				}
+				if(!keywordFound) {
+					allKeywordsPresent = false;
+					break;
+				}
+			}
+
+			if(allKeywordsPresent && action_library[i].aspect_ratio == doc_format) {
+				temp_array.push(action_library[i]);
+			}
+		}
 
         // Reorder the temporary array so that objects with the most keywords come first
         temp_array.sort(function(a, b) {
             return b.keywords.length - a.keywords.length;
         });
+
+		// Loop over temp_array
+		for(var i = 0; i < temp_array.length; i++) {
+			// Alert the keywords of each item
+			alert("Keywords for item " + (i+1) + ": " + temp_array[i].keywords.join(", "));
+		}
 
         // Loop over temp_array
         for(var i = 0; i < temp_array.length; i++) {
@@ -393,13 +415,13 @@ try {
                 }
                 // Execute actions
                 for(var c = 0; c < temp_array[i].actions.length; c++) {
-                    //alert(temp_array[i].actions[c][0]);
-                    app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
+                    alert(temp_array[i].actions[c][0]);
+                    //app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
                 }
                 // Break the loop after executing the first matching action
                 break;
             }
         }
     }
-    saveClose();
+    //saveClose();
 } catch(e) { alert(e); }
