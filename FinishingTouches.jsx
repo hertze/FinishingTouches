@@ -1,6 +1,6 @@
 // F I N I S H I N G  T O U C H E S
 //
-// Version 2.1
+// Version 2.2
 //
 // by Joakim Hertze (www.hertze.se)
 //
@@ -369,7 +369,6 @@ function containsAll(arr1, arr2) {
     return true;
 }
 
-// M A I N
 
 // M A I N
 
@@ -392,7 +391,7 @@ try {
 			}
 		}
 
-		// Loop over temp_array in reverse order
+		// Loop over temp_array in reverse order and remove library items where not all keywords are present in doc_keywords
 		for(var i = temp_array.length - 1; i >= 0; i--) {
 			// Check if all keywords in temp_array[i] are present in doc_keywords
 			var allKeywordsPresent = true;
@@ -421,11 +420,10 @@ try {
             return b.keywords.length - a.keywords.length;
         });
 
-		// Loop over temp_array
-		for(var i = 0; i < temp_array.length; i++) {
-			// Alert the keywords of each item
-			alert("Keywords for item " + (i+1) + ": " + temp_array[i].keywords.join(", "));
-		}
+		// Loop over temp_array for alerting the keywords of each item
+		//for(var i = 0; i < temp_array.length; i++) {
+			//alert("Keywords for item " + (i+1) + ": " + temp_array[i].keywords.join(", "));
+		//}
 
         // Loop over temp_array
         for(var i = 0; i < temp_array.length; i++) {
@@ -437,13 +435,13 @@ try {
                 }
                 // Execute actions
                 for(var c = 0; c < temp_array[i].actions.length; c++) {
-                    alert(temp_array[i].actions[c][0]);
-                    //app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
+                    //alert(temp_array[i].actions[c][0] + ", " + temp_array[i].actions[c][1]);
+                    app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
                 }
                 // Break the loop after executing the first matching action
                 break;
             }
         }
     }
-    //saveClose();
+    saveClose();
 } catch(e) { alert(e); }
