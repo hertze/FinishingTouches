@@ -387,31 +387,26 @@ try {
 		var temp_array = [];
 		for(var i = 0; i < capsules.length; i++) {
 			if(capsules[i].keywords[0] == doc_keywords[a] && capsules[i].aspect_ratio == doc_format) {
-				temp_array.push(capsules[i]);
-			}
-		}
-
-		// Loop over temp_array in reverse order and remove library items where not all keywords are present in doc_keywords
-		for(var i = temp_array.length - 1; i >= 0; i--) {
-			// Check if all keywords in temp_array[i] are present in doc_keywords
-			var allKeywordsPresent = true;
-			for(var j = 0; j < temp_array[i].keywords.length; j++) {
-				var keywordFound = false;
-				for(var k = 0; k < doc_keywords.length; k++) {
-					if(doc_keywords[k] === temp_array[i].keywords[j]) {
-						keywordFound = true;
+				// Check if all keywords in capsules[i] are present in doc_keywords
+				var allKeywordsPresent = true;
+				for(var j = 0; j < capsules[i].keywords.length; j++) {
+					var keywordFound = false;
+					for(var k = 0; k < doc_keywords.length; k++) {
+						if(doc_keywords[k] === capsules[i].keywords[j]) {
+							keywordFound = true;
+							break;
+						}
+					}
+					if(!keywordFound) {
+						allKeywordsPresent = false;
 						break;
 					}
 				}
-				if(!keywordFound) {
-					allKeywordsPresent = false;
-					break;
-				}
-			}
 
-			// If not all keywords are present, remove the object from temp_array
-			if(!allKeywordsPresent) {
-				temp_array.splice(i, 1);
+				// If all keywords are present, add the object to temp_array
+				if(allKeywordsPresent) {
+					temp_array.push(capsules[i]);
+				}
 			}
 		}
 
@@ -435,13 +430,13 @@ try {
                 }
                 // Execute actions
                 for(var c = 0; c < temp_array[i].actions.length; c++) {
-                    alert(temp_array[i].actions[c][0] + ", " + temp_array[i].actions[c][1]);
-                    //app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
+                    //alert(temp_array[i].actions[c][0] + ", " + temp_array[i].actions[c][1]);
+                    app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
                 }
                 // Break the loop after executing the first matching action
                 break;
             }
         }
     }
-    //saveClose();
+    saveClose();
 } catch(e) { alert(e); }
