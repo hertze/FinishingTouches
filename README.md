@@ -13,7 +13,7 @@ This script executes Photoshop actions from keywords embedded in an image file. 
 Finishing Touches has a library of keywords tied to Photoshop actions in the form of javascript objects, of the following form:
 
 	{
-		"keywords": the keyword or keywordss you add to the image in Lightroom,
+		"keywords": the keyword or keywords you add to the image in Lightroom,
 		"aspect_ratio": the aspect ratio: 2x3, 4x3, 4x5, 6x7 or 1x1,
 		"target_size": the short-side target dimension of the image in pixels,
 		"actions": [[the name of the first action as it is displayed in the Actions palette, the path to the .atn file for the action], [...]]
