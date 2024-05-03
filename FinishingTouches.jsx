@@ -81,6 +81,13 @@ const action_library = [
 		"target_size": 6000,
 		"actions": [["645 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
+
+	{
+		"keywords": ["color", "iso100"],
+		"aspect_ratio": "4x3",
+		"target_size": 6000,
+		"actions": [["645 ISO 100 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+	},
 	
 	{
 		"keywords": ["color", "iso1600"],
@@ -120,6 +127,12 @@ const action_library = [
 		"keywords": ["halation", "color"],
 		"aspect_ratio": "4x3",
 		"actions": [["Halation, 120", "Halation.atn"]]
+	},
+
+	{
+		"keywords": ["halation", "color", "strong"],
+		"aspect_ratio": "4x3",
+		"actions": [["Halation, 120, strong", "Halation.atn"]]
 	},
 
 	{
@@ -371,14 +384,22 @@ try {
     // Loop through all keywords in doc_keywords
     for(var a = 0; a < doc_keywords.length; a++){
 
-      	// Create a temporary array to hold the subset of objects from action_library, where all keywords are present in doc_keywords and are of the correct aspect ratio
+      	// Create a temporary array to hold the subset of objects from action_library, where the first keyword equals the current doc keyword and are of the correct aspect ratio
 		var temp_array = [];
 		for(var i = 0; i < action_library.length; i++) {
+			if(action_library[i].keywords[0] == doc_keywords[a] && action_library[i].aspect_ratio == doc_format) {
+				temp_array.push(action_library[i]);
+			}
+		}
+
+		// Loop over temp_array in reverse order
+		for(var i = temp_array.length - 1; i >= 0; i--) {
+			// Check if all keywords in temp_array[i] are present in doc_keywords
 			var allKeywordsPresent = true;
-			for(var j = 0; j < action_library[i].keywords.length; j++) {
+			for(var j = 0; j < temp_array[i].keywords.length; j++) {
 				var keywordFound = false;
 				for(var k = 0; k < doc_keywords.length; k++) {
-					if(doc_keywords[k] === action_library[i].keywords[j]) {
+					if(doc_keywords[k] === temp_array[i].keywords[j]) {
 						keywordFound = true;
 						break;
 					}
@@ -389,8 +410,9 @@ try {
 				}
 			}
 
-			if(allKeywordsPresent && action_library[i].aspect_ratio == doc_format) {
-				temp_array.push(action_library[i]);
+			// If not all keywords are present, remove the object from temp_array
+			if(!allKeywordsPresent) {
+				temp_array.splice(i, 1);
 			}
 		}
 
