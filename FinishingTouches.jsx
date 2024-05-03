@@ -14,7 +14,7 @@
 // Change or add all the library objects you like!
 //
 
-const action_library = [
+const capsules = [
 	
 	{
 		"keywords": ["color"],
@@ -383,11 +383,11 @@ try {
     // Loop through all keywords in doc_keywords
     for(var a = 0; a < doc_keywords.length; a++){
 
-      	// Create a temporary array to hold the subset of objects from action_library, where the first keyword equals the current doc keyword and are of the correct aspect ratio
+      	// Create a temporary array to hold the subset of objects from capsules, where the first keyword equals the current doc keyword and are of the correct aspect ratio
 		var temp_array = [];
-		for(var i = 0; i < action_library.length; i++) {
-			if(action_library[i].keywords[0] == doc_keywords[a] && action_library[i].aspect_ratio == doc_format) {
-				temp_array.push(action_library[i]);
+		for(var i = 0; i < capsules.length; i++) {
+			if(capsules[i].keywords[0] == doc_keywords[a] && capsules[i].aspect_ratio == doc_format) {
+				temp_array.push(capsules[i]);
 			}
 		}
 
@@ -435,13 +435,13 @@ try {
                 }
                 // Execute actions
                 for(var c = 0; c < temp_array[i].actions.length; c++) {
-                    //alert(temp_array[i].actions[c][0] + ", " + temp_array[i].actions[c][1]);
-                    app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
+                    alert(temp_array[i].actions[c][0] + ", " + temp_array[i].actions[c][1]);
+                    //app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
                 }
                 // Break the loop after executing the first matching action
                 break;
             }
         }
     }
-    saveClose();
+    //saveClose();
 } catch(e) { alert(e); }
