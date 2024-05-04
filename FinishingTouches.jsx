@@ -161,7 +161,7 @@ const capsules = [
 
 var tiff_to_jpg = true;
 var sRGB = true;
-var keyword_order = ["halation", "poserframes", "color"];
+var keyword_order = ["halation", "poserframes", "color", "bw"];
 
 // ---------------------------------------------------------------------
 
