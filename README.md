@@ -79,7 +79,7 @@ If the variable **tiff_to_jpg** is set to `true` TIFF images will be saved as JP
 
 If the variable **sRGB** is set to `true`the color profile will be converted to sRGB before a TIFF image is saved as a jpeg.
 
-The variable **keyword_order** is an array (list) of keywords, that defines the order in which they should be executed.
+The variable **keyword_order** is an array (list) of master keywords, that defines the order in which capsules should be matched and executed.
 
 ## Tips
 
