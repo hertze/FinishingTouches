@@ -1,6 +1,6 @@
 # FINISHING TOUCHES -- an action workflow script for Photoshop
 
-This script executes Photoshop actions from keywords in an image file, taking the aspect ratio into consideration. I use it in a droplet to run different actions depending on whether it's a color or black and white image and depending on if it's a 2x3 or 4x3 image.
+This script is designed to automate actions in Adobe Photoshop based on the keywords and aspect ratio of the active image file. It's particularly useful for batch processing a mix of images with varying sizes, mode and aspect ratios.
 
 ## How to install
 
