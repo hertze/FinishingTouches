@@ -10,7 +10,7 @@ This script executes Photoshop actions from keywords in an image file, taking th
 
 ## How it works
 
-The script contains a library of *capsules*, where each capsule contains a combination of *matching properties* (keywords and aspect ratio) and *instructional properties* (target size and Photoshop actions). When the script runs on an image, it looks at the keywords in the image EXIF data and its aspect ratio and resizes and executes the Photoshop actions of the matching capsule.
+The script has a library of *capsules*, where each capsule contains a combination of *matching properties* (keywords and aspect ratio) and *instructional properties* (target size and Photoshop actions). When the script runs on an image, it looks at the keywords in the image EXIF data and its aspect ratio and resizes and executes the Photoshop actions of the matching capsule.
 
 ## Defining library capsules
 
@@ -18,7 +18,7 @@ A capsule is a javascript object of the following form:
 
 	{
 		"keywords": the keyword or keywords you add to the image EXIF data in Lightroom,
-		"aspect_ratio": the aspect ratio of the image: 2x3, 4x3, 4x5, 6x7 or 1x1,
+		"aspect_ratio": the aspect ratio of the image: "2x3", "4x3", "4x5", "6x7" or "1x1",
 		"target_size": the short-side target dimension of the image in pixels,
 		"actions": [[the name of the first action as it is displayed in the Actions palette, the path to the .atn file for the action], [...]]
 	}
@@ -29,7 +29,7 @@ The item `"keywords"` may contain one or many keywords. The first keyword is cal
 
 The keyword set for a specific aspect ratio must be unique to one capsule, so there can be only one match.
 
-The item `"target_size"` is optional. If it's present in a capsule, the image will be resized to the target size when the capsule is matched. I suggest using it in capsules that run actions that need images of specific dimensions.
+The item `"target_size"` is optional. If it's present in a capsule, the image will be resized to the target size when the capsule is matched. I suggest using it in capsules that run actions that need images of specific dimensions. Resizing is done before any action is executed.
 	
 This is a real example of a capsule:
 
@@ -40,7 +40,7 @@ This is a real example of a capsule:
 		"actions": [["35mm ISO 3200 (3600 Monochrome)", "The Film Grain 3600 Monochrome.atn"]]
 	}
 	
-The keyword `bw` is set in Lightroom (or Bridge). When Finishing Touches finds this keyword in an image file it runs the action `35mm ISO 3200 (3600 Monochrome)` for images with a 2x3 aspect ratio. It also resizes this images to 3600px on the short side. Note where you need the quotation marks and the square brackets around the actions. All library objects but the last one needs a comma after the closing `}`.
+The keyword `bw` is set in Lightroom (or Bridge). When Finishing Touches finds this keyword in an image file with a 2x3 aspect ratio it resizes this images to 3600px on the short side and then runs the action `35mm ISO 3200 (3600 Monochrome)`. Note where you need the quotation marks and the square brackets around the actions. All library objects but the last one needs a comma after the closing `}`.
 
 When you want to change to a different action, copy the first value (i.e. **35mm ISO 3200 (3600 Monochrome)**) directly from the actions palette. The easiest way to get the second value (i.e. **The Film Grain 3600 Monochrome.atn**) is to select the actions folder, click on the hamburger menu of the actions palette, choose **Save** and copy the filename with the **.atn** ending.
 
