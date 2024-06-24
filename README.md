@@ -44,9 +44,7 @@ The keyword `bw` is set in Lightroom (or Bridge). When Finishing Touches finds t
 
 When you want to change to a different action, copy the first value (i.e. **35mm ISO 3200 (3600 Monochrome)**) directly from the actions palette. The easiest way to get the second value (i.e. **The Film Grain 3600 Monochrome.atn**) is to select the actions folder, click on the hamburger menu of the actions palette, choose **Save** and copy the filename with the **.atn** ending.
 
-Note the quotation marks, square brackets and the comma after all value pairs but the last one.
-
-These are two examples of a capsules with a master keyword (**halation**) and a modifier keyword (**color** or **bw**). With these capsules, "Halation, 35mm" is run for images with both **halation** and **color** among its keywords, but "Halation mono" for images with **halation** and **bw** among its keywords.
+These are two examples of a capsule with a master keyword (**halation**) and a modifier keyword (**color** or **bw**). With these capsules, "Halation, 35mm" is run for images with both **halation** and **color** among its keywords, but "Halation mono" for images with **halation** and **bw** among its keywords.
 
 	{
 		"keywords": ["halation", "color"],
