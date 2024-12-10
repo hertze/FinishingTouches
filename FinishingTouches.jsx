@@ -233,10 +233,12 @@ function resizeThisImage(thisSize) {
 	}	
 }
 
-function format(){
+function format() {
     // Determine format
     var aspectRatio = app.activeDocument.height / app.activeDocument.width;
+
     if (aspectRatio > 1) {
+        // Portrait-oriented
         if (aspectRatio < 1.1) {
             return "1x1";
         } else if (aspectRatio < 1.2) {
@@ -245,12 +247,13 @@ function format(){
             return "4x5";
         } else if (aspectRatio < 1.4) {
             return "4x3";
-        } else if (aspectRatio < 2.8) {
-            return "2x3";
-        } else {
+        } else if (aspectRatio < 2.75 && aspectRatio > 2.65) {
             return "xpan";
+        } else {
+            return "2x3";
         }
     } else {
+        // Landscape-oriented
         if (1 / aspectRatio < 1.1) {
             return "1x1";
         } else if (1 / aspectRatio < 1.2) {
@@ -259,13 +262,14 @@ function format(){
             return "4x5";
         } else if (1 / aspectRatio < 1.4) {
             return "4x3";
-        } else if (1 / aspectRatio < 2.8) {
-            return "2x3";
-        } else {
+        } else if (1 / aspectRatio < 2.75 && 1 / aspectRatio > 2.65) {
             return "xpan";
+        } else {
+            return "2x3";
         }
     }
 }
+
 
 function reorderArray(originalArray, orderArray) {
 
