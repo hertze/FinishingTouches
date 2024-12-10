@@ -234,33 +234,37 @@ function resizeThisImage(thisSize) {
 }
 
 function format(){
-	// Determine format
-	var aspectRatio = app.activeDocument.height / app.activeDocument.width;
-	if (aspectRatio > 1) {
-		if (aspectRatio < 1.1) {
-			return "1x1";
-		} else if (aspectRatio < 1.2) {
-			return "6x7";
-		} else if (aspectRatio < 1.3) {
-			return "4x5";
-		} else if (aspectRatio < 1.4) {
-			return "4x3";
-		} else {
-			return "2x3";
-		}
-	} else {
-		if (1 / aspectRatio < 1.1) {
-			return "1x1";
-		} else if (1 / aspectRatio < 1.2) {
-			return "6x7";
-		} else if (1 / aspectRatio < 1.3) {
-			return "4x5";
-		} else if (1 / aspectRatio < 1.4) {
-			return "4x3";
-		} else {
-			return "2x3";
-		}
-	}
+    // Determine format
+    var aspectRatio = app.activeDocument.height / app.activeDocument.width;
+    if (aspectRatio > 1) {
+        if (aspectRatio < 1.1) {
+            return "1x1";
+        } else if (aspectRatio < 1.2) {
+            return "6x7";
+        } else if (aspectRatio < 1.3) {
+            return "4x5";
+        } else if (aspectRatio < 1.4) {
+            return "4x3";
+        } else if (aspectRatio < 2.8) {
+            return "2x3";
+        } else {
+            return "xpan";
+        }
+    } else {
+        if (1 / aspectRatio < 1.1) {
+            return "1x1";
+        } else if (1 / aspectRatio < 1.2) {
+            return "6x7";
+        } else if (1 / aspectRatio < 1.3) {
+            return "4x5";
+        } else if (1 / aspectRatio < 1.4) {
+            return "4x3";
+        } else if (1 / aspectRatio < 2.8) {
+            return "2x3";
+        } else {
+            return "xpan";
+        }
+    }
 }
 
 function reorderArray(originalArray, orderArray) {
@@ -372,7 +376,6 @@ try {
                 }
                 // Execute actions
                 for(var c = 0; c < temp_array[i].actions.length; c++) {
-			
                     app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
                 }
                 // Break the loop after executing the first matching action
