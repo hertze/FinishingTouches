@@ -124,7 +124,7 @@ const capsules = [
 		"keywords": ["color"],
 		"aspect_ratio": "6x7",
 		"target_size": 6000,
-		"actions": [["Halation, 120", "Halation.atn"], ["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
+		"actions": [["6x6/6x7 ISO 400 (6000 Color)", "The Film Grain 6000 Color.atn"]]
 	},
 	
 	{
@@ -372,6 +372,7 @@ try {
                 }
                 // Execute actions
                 for(var c = 0; c < temp_array[i].actions.length; c++) {
+			
                     app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
                 }
                 // Break the loop after executing the first matching action
