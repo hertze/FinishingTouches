@@ -249,6 +249,8 @@ function format() {
             return "4x3";
         } else if (aspectRatio < 1.6) {
             return "2x3";
+        } else if (aspectRatio < 1.8) {
+            return "16x9";
         } else {
             return "xpan";
         }
@@ -264,11 +266,14 @@ function format() {
             return "4x3";
         } else if (1 / aspectRatio < 1.6) {
             return "2x3";
+        } else if (1 / aspectRatio < 1.8) {
+            return "16x9";
         } else {
             return "xpan";
         }
     }
 }
+
 
 
 function reorderArray(originalArray, orderArray) {
