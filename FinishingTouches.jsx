@@ -8,6 +8,8 @@
 
 #target photoshop
 
+var debug = false;
+
 
 // LIBRARY -------------------------------------------------------------
 //
@@ -53,7 +55,7 @@ const capsules = [
 	{
 		"keywords": ["halation", "color"],
 		"aspect_ratio": "2x3",
-		"actions": [["Halation, 35mm", "Halation.atn"]]
+		"actions": [["Halation, 35mm", "Halation.atn"], ["Clay", "Wallflower.atn"]]
 	},
 
 	{
@@ -385,6 +387,7 @@ try {
                 }
                 // Execute actions
                 for(var c = 0; c < temp_array[i].actions.length; c++) {
+					if (debug) { alert("Executing action: " + temp_array[i].actions[c][0] + " from " + temp_array[i].actions[c][1]); }
                     app.doAction(temp_array[i].actions[c][0], temp_array[i].actions[c][1]);
                 }
                 // Break the loop after executing the first matching action
