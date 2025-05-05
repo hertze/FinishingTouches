@@ -8,8 +8,6 @@
 
 #target photoshop
 
-var debug = false;
-
 
 // LIBRARY -------------------------------------------------------------
 //
@@ -164,6 +162,7 @@ const capsules = [
 var tiff_to_jpg = true;
 var sRGB = true;
 var keyword_order = ["halation", "poserframes", "color", "bw"];
+var debug = false;
 
 // ---------------------------------------------------------------------
 
