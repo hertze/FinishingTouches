@@ -69,6 +69,19 @@ const capsules = [
 	},
 	
 	{
+		"keywords": ["wallflower"],
+		"aspect_ratio": "2x3",
+		"actions": [["Desaturated", "Wallflower basics.atn"]]
+	},
+
+	{
+		"keywords": ["wallflower", "peach"],
+		"aspect_ratio": "2x3",
+		"actions": [["Peach", "Wallflower.atn"]]
+	},
+
+	
+	{
 		"keywords": ["color"],
 		"aspect_ratio": "4x3",
 		"target_size": 6000,
@@ -118,6 +131,18 @@ const capsules = [
 		"keywords": ["halation", "bw"],
 		"aspect_ratio": "4x3",
 		"actions": [["Halation, 120", "Halation mono.atn"]]
+	},
+	
+	{
+		"keywords": ["wallflower"],
+		"aspect_ratio": "4x3",
+		"actions": [["Desaturated", "Wallflower basics.atn"]]
+	},
+
+	{
+		"keywords": ["wallflower", "peach"],
+		"aspect_ratio": "4x3",
+		"actions": [["Peach", "Wallflower.atn"]]
 	},
 	
 	{
